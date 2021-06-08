@@ -68,6 +68,7 @@ void Contact::PrintContactShort() {
     PrintAttribute(GetFirstName());
     PrintAttribute(GetLastName());
     PrintAttribute(GetNickname());
+    std::cout << "\n";
 }
 
 std::string Contact::GetFirstName() const {

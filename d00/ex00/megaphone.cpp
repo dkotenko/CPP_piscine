@@ -3,7 +3,7 @@
 
 void printUpperString(std::string s) {
     for (int i=0; i < s.length(); i++) {
-        std::cout << toupper(s[i]);
+        std::cout << (char)toupper(s[i]);
     }
 }
 
@@ -16,7 +16,7 @@ int main (int argc, char* argv[])
         std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
     }
     else {
-        while (++i < argc - 1)
+        while (++i < argc)
         {
             printUpperString(argv[i]);
         }
