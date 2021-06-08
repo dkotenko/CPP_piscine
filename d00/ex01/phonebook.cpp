@@ -41,6 +41,11 @@ void searchContact(Contact contacts[8], int index) {
         std::cout << "Invalid index, choose index in range 0-7" << std::endl ;
         return ;
     }
+    if (inputIndex[0] - '0' >= index) {
+        std::cout << "No contact with index " << inputIndex[0]  << std::endl ;
+        return ;
+    }
+
     int currIndex = inputIndex[0] - '0';
     contacts[currIndex].PrintContactFull();
 }

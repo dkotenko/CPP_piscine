@@ -5,7 +5,7 @@ FLAGS=-Wall -Wextra -Werror
 SRCS = megaphone.cpp
 
 all:
-	$(CC) -o $(NAME) $(SRCS)
+	$(CC) $(FLAGS) -o $(NAME) $(SRCS)
 
 fclean:
 	rm -rf $(NAME)

@@ -2,7 +2,7 @@
 #include <string>
 
 void printUpperString(std::string s) {
-    for (int i=0; i < s.length(); i++) {
+    for (int i=0; i < (int)s.length(); i++) {
         std::cout << (char)toupper(s[i]);
     }
 }
