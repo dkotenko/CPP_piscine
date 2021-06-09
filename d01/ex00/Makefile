@@ -13,10 +13,10 @@ $(NAME):	$(INCLUDES) $(SRCS)
 			clang++ $(SRCS) $(FLAGS) -o $@
 
 clean:
-			rm -rf *.o
+			@rm -rf *.o
 
 fclean:		clean
-			rm -rf $(NAME)
+			@rm -rf $(NAME)
 
 re:			fclean all
 

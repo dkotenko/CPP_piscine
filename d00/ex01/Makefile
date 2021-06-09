@@ -4,11 +4,20 @@ FLAGS=-Wall -Wextra -Werror
 
 SRCS = phonebook.cpp \
 	Contact.cpp
+	
+INCLUDES =	Contact.h
 
-all:
-	$(CC) $(FLAGS) -o $(NAME) $(SRCS)
+all: 		$(NAME)
 
-fclean:
-	@rm -rf $(NAME)
+$(NAME):	$(INCLUDES) $(SRCS)
+			$(CC) $(SRCS) $(FLAGS) -o $@
 
-PHONY: all fclean
+clean:
+			rm -rf *.o
+
+fclean:		clean
+			rm -rf $(NAME)
+
+re:			fclean all
+
+.PHONY: 	all clean fclean re
