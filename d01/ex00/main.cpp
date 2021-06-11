@@ -18,6 +18,5 @@ int main() {
     ponyOnTheStack();
     std::cout << "===== HEAP  =====" << std::endl;
     ponyOnTheHeap();
-
     return 0;
 }
