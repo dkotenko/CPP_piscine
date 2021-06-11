@@ -21,7 +21,7 @@ int main() {
     std::cin >> replaceWith;
 
     std::ifstream inputFile (filename);
-    std::ofstream outputFile (filename + ".riplace");
+    std::ofstream outputFile (filename + ".replace");
     if (inputFile.is_open())
     {
         if (outputFile.is_open()) {
