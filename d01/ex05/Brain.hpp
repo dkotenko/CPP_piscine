@@ -2,10 +2,11 @@
 #define D01_BRAIN_H
 
 #include <iostream>
+#include <sstream>
 
 class Brain {
 public:
-    void identify();
+    std::string identify();
 };
 
 

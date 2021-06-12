@@ -1,7 +1,7 @@
 #include "Zombie.hpp"
 
 void Zombie::announce() {
-    std::cout << "< " << name << " (" << type << ")> announce\n";
+    std::cout << "< " << name << " (" << type << ")> announce" << std::endl;
 }
 
 Zombie::Zombie() {
@@ -9,7 +9,7 @@ Zombie::Zombie() {
 }
 
 Zombie::~Zombie() {
-    std::cout << "< " << name << " (" << type << ")> was deleted\n";
+    std::cout << "< " << name << " (" << type << ")> was deleted" << std::endl;
 }
 
 void Zombie::setName(std::string name) {

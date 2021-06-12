@@ -4,7 +4,8 @@
 int main() {
 
     Human human = Human();
-    human.identify();
-    human.getBrain()->identify();
+    std::cout << human.identify() << std::endl;
+    std::cout << human.getBrain()->identify() << std::endl;
+
     return 0;
 }

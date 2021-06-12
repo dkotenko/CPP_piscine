@@ -1,5 +1,7 @@
 #include "Brain.hpp"
 
-void Brain::identify() {
-    std::cout << this << std::endl;
+std::string Brain::identify() {
+    std::stringstream brainStream;
+    brainStream << this;
+    return brainStream.str();
 }

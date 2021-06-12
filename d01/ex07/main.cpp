@@ -44,11 +44,14 @@ std::string replaceAll(std::string line, std::string what, std::string with)
 {
     int findResult = line.find(what);
     int lengthWhat = what.length();
+    int lengthWith = with.length();
+    int lineIndex = findResult;
 
     while (findResult != -1)
     {
         line = line.replace(findResult, lengthWhat, with);
-        findResult = line.find(what);
+        lineIndex += lengthWith;
+        findResult = line.find(what, lineIndex);
     }
     return line;
 }

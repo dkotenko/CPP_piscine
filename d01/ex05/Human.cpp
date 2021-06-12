@@ -6,8 +6,11 @@ Human::Human() {
 
 Human::~Human(){}
 
-void Human::identify() {
-    std::cout << &brain << std::endl;
+std::string Human::identify() {
+    std::stringstream humanStream;
+
+    humanStream << &brain;
+    return humanStream.str();
 }
 
 Brain *Human::getBrain() {

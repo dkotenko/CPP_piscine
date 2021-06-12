@@ -8,7 +8,7 @@ private:
 
 public:
     Brain *getBrain();
-    void identify();
+    std::string identify();
     Human();
     ~Human();
 };

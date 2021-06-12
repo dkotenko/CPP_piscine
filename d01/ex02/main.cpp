@@ -1,8 +1,7 @@
 #include "ZombieEvent.hpp"
 
-
 int main() {
-
+    srand(static_cast<unsigned int>(time(0)));
     ZombieEvent *event = new ZombieEvent();
 
     Zombie *a = event->newZombie("JACK THE ZOMBIE");
