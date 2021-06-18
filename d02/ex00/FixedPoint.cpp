@@ -6,17 +6,17 @@ FixedPoint::FixedPoint() {
 }
 
 FixedPoint::~FixedPoint() {
-    std::cout << "Default destructor called" << std::endl;
+    std::cout << "Destructor called" << std::endl;
 }
 
-FixedPoint::FixedPoint(const FixedPoint &fixedPoint) {
-    value = fixedPoint.value;
+FixedPoint::FixedPoint(FixedPoint const &fixedPoint) {
     std::cout << "Copy constructor called" << std::endl;
+    value = fixedPoint.getRawBits();
 }
 
-FixedPoint FixedPoint::operator=(const FixedPoint &fixedPoint) {
+FixedPoint &FixedPoint::operator=(FixedPoint const &fixedPoint) {
     std::cout << "Assignation operator called" << std::endl;
-    value = fixedPoint.value;
+    this->value = fixedPoint.getRawBits();
     return *this;
 }
 
