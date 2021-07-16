@@ -1,4 +1,4 @@
-#include "FixedPoint.h"
+#include "FixedPoint.hpp"
 
 int main() {
     FixedPoint a;

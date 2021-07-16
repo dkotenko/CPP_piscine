@@ -1,5 +1,5 @@
-#ifndef D02_FIXEDPOINT_H
-#define D02_FIXEDPOINT_H
+#ifndef D02_FIXEDPOINT_HPP
+#define D02_FIXEDPOINT_HPP
 
 #include <iostream>
 

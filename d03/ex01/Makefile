@@ -1,9 +1,11 @@
 SRCS =		ClapTrap.cpp \
+			ScavTrap.cpp \
 			main.cpp
 
-INCLUDES =	ClapTrap.h
+INCLUDES =	ClapTrap.hpp \
+			ScavTrap.hpp
 
-NAME =		ex01
+NAME =		ex00
 
 FLAGS =		-Wall -Wextra -Werror
 

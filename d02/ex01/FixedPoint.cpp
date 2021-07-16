@@ -1,4 +1,4 @@
-#include "FixedPoint.h"
+#include "FixedPoint.hpp"
 #include <cmath>
 
 FixedPoint::FixedPoint() {
