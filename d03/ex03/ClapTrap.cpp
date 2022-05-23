@@ -16,6 +16,10 @@ ClapTrap::ClapTrap(const ClapTrap &clapTrap) {
     *this = clapTrap;
 }
 
+ClapTrap::ClapTrap() {
+    std::cout << "ClapTrap was created: default constructor" << std::endl;
+}
+
 ClapTrap &ClapTrap::operator=(ClapTrap const  &clapTrap) {
     name = clapTrap.name;
     hitpoints = clapTrap.hitpoints;

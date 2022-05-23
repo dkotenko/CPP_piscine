@@ -4,6 +4,15 @@ ScavTrap::~ScavTrap() {
     std::cout << "ScavTrap deleted" << std::endl;
 }
 
+ScavTrap::ScavTrap() {
+    std::cout << "ScavTrap was created: default constructor" << std::endl;
+}
+
+ScavTrap::ScavTrap(const ScavTrap &scavTrap) {
+    *this = scavTrap;
+    std::cout << "ScavTrap copied (copy constructor)" << std::endl;
+}
+
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {
     this->name = name;

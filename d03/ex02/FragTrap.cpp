@@ -4,14 +4,6 @@ FragTrap::~FragTrap() {
     std::cout << "FragTrap deleted" << std::endl;
 }
 
-FragTrap::FragTrap() {
-    std::cout << "FragTrap was created: default constructor" << std::endl;
-}
-
-FragTrap::FragTrap(const FragTrap &fragTrap) {
-    *this = fragTrap;
-}
-
 FragTrap::FragTrap(std::string name) : ClapTrap(name)
 {
     this->name = name;
@@ -21,8 +13,16 @@ FragTrap::FragTrap(std::string name) : ClapTrap(name)
     std::cout << "FragTrap was created: current name: " << name << std::endl;
 }
 
+FragTrap::FragTrap(const FragTrap &fragTrap) {
+    *this = fragTrap;
+}
+
+FragTrap::FragTrap() {
+    std::cout << "FragTrap was created: default constructor" << std::endl;
+}
+
 void FragTrap::highFivesGuys() {
-    std::cout << "FragTrap '" << name << "' gives your high five!" << std::endl;
+    std::cout << "FragTrap '" << name << "' gives you high five!" << std::endl;
 }
 
 void FragTrap::attack(std::string const & target) {

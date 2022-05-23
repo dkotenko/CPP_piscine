@@ -1,28 +1,20 @@
 SRCS =		ClapTrap.cpp \
 			FragTrap.cpp \
 			ScavTrap.cpp \
-			DiamondTrap.cpp \
 			main.cpp
 
 INCLUDES =	ClapTrap.hpp \
 			FragTrap.hpp \
-			DiamondTrap.hpp \
 			ScavTrap.hpp
 
-OBJS	= 	$(SRCS:%.cpp=%.o)
+NAME =		ex02
 
-NAME	=	ex03
-
-FLAGS	=	-Wall -Wextra -Werror
-CC		= clang++
+FLAGS =		-Wall -Wextra -Werror
 
 all: 		$(NAME)
 
-$(NAME):	$(OBJS) $(INCLUDES) 
-			$(CC) $(FLAGS) $(OBJS) -o $@
-
-%.o: %.cpp
-	$(CC) $(FLAGS) -I ./ -c $< -o $@
+$(NAME):	$(INCLUDES) $(SRCS)
+			clang++ $(SRCS) $(FLAGS) -o $@
 
 clean:
 			@rm -rf *.o

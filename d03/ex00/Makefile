@@ -7,10 +7,12 @@ NAME =		ex00
 
 FLAGS =		-Wall -Wextra -Werror
 
+CC = 		clang++
+
 all: 		$(NAME)
 
 $(NAME):	$(INCLUDES) $(SRCS)
-			clang++ $(SRCS) $(FLAGS) -o $@
+			$(CC) $(SRCS) $(FLAGS) -o $@
 
 clean:
 			@rm -rf *.o

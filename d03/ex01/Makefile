@@ -5,7 +5,7 @@ SRCS =		ClapTrap.cpp \
 INCLUDES =	ClapTrap.hpp \
 			ScavTrap.hpp
 
-NAME =		ex00
+NAME =		ex01
 
 FLAGS =		-Wall -Wextra -Werror
 

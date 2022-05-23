@@ -1,34 +1,32 @@
-#include "DiamondTrap.hpp"
+#include "FragTrap.hpp"
 
 void printStage(std::string stageName) {
     std::cout << "===" << stageName << "===" << std::endl;
 }
 
 int main() {
-    printStage("DiamondTrap created");
-    DiamondTrap trap("DiamondTrap");
+    printStage("FragTrap created");
+    FragTrap trap("FragTrap");
     std::cout << trap << std::endl;
 
-/*
-    printStage("DiamondTrap attacked");
+    printStage("FragTrap attacked");
     std::string target = "target";
     trap.attack(target);
     std::cout << std::endl;
 
-    printStage("DiamondTrap took damage");
+    printStage("FragTrap took damage");
     trap.takeDamage(2);
     std::cout << trap << std::endl;
     std::cout << std::endl;
 
-    printStage("DiamondTrap repaired");
+    printStage("FragTrap repaired");
     trap.beRepaired(10);
     std::cout << trap << std::endl;
 
-    printStage("DiamondTrap highFivesGuys");
+    printStage("FragTrap highFivesGuys");
     trap.highFivesGuys();
     std::cout << std::endl;
 
-*/
-    printStage("DiamondTrap destoyed");
+    printStage("FragTrap destoyed");
     return 0;
 }
