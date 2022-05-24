@@ -9,7 +9,6 @@ int main() {
     DiamondTrap trap("DiamondTrap");
     std::cout << trap << std::endl;
 
-/*
     printStage("DiamondTrap attacked");
     std::string target = "target";
     trap.attack(target);
@@ -28,7 +27,7 @@ int main() {
     trap.highFivesGuys();
     std::cout << std::endl;
 
-*/
+
     printStage("DiamondTrap destoyed");
     return 0;
 }

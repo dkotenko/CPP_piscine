@@ -3,13 +3,14 @@
 
 #include "ClapTrap.hpp"
 
-class ScavTrap : public virtual ClapTrap {
+class ScavTrap : virtual public ClapTrap {
     public:
-        ScavTrap(std::string name);
         ScavTrap();
+        ScavTrap(std::string name);
         ~ScavTrap();
+        ScavTrap(const ScavTrap &scavTrap);
+        ScavTrap &operator=(const ScavTrap & scavTrap);
         void guardGate();
-        void attack(std::string const & target);
 };
 
 #endif

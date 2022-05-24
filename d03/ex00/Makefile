@@ -1,6 +1,8 @@
 SRCS =		ClapTrap.cpp \
 			main.cpp
 
+OBJS	= 	$(SRCS:%.cpp=%.o)
+
 INCLUDES =	ClapTrap.hpp
 
 NAME =		ex00
@@ -11,8 +13,11 @@ CC = 		clang++
 
 all: 		$(NAME)
 
-$(NAME):	$(INCLUDES) $(SRCS)
-			$(CC) $(SRCS) $(FLAGS) -o $@
+$(NAME):	$(OBJS) $(INCLUDES)
+			$(CC) $(FLAGS) $(OBJS) -o $@
+
+%.o: %.cpp
+	$(CC) $(FLAGS) -I ./ -c $< -o $@
 
 clean:
 			@rm -rf *.o

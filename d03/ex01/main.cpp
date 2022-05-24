@@ -7,6 +7,8 @@ void printStage(std::string stageName) {
 int main() {
     printStage("ScavTrap created");
     ScavTrap trap("Scavenger trap");
+    ScavTrap defaultScavTrap;
+    defaultScavTrap = trap;
     std::cout << trap << std::endl;
 
     printStage("ScavTrap attacked");

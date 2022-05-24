@@ -14,16 +14,17 @@ class ClapTrap {
     public:
         ClapTrap(std::string name);
         ClapTrap(const ClapTrap &clapTrap);
-        ~ClapTrap();
         ClapTrap();
+        ~ClapTrap();
+        
         ClapTrap &operator=(const ClapTrap & clapTrap);
         void attack(std::string const & target);
-        virtual void takeDamage(unsigned int amount);
-        virtual void beRepaired(unsigned int amount);
-        virtual std::string getName();
-        virtual int getAttackDamage();
-        virtual int getHitpoints();
-        virtual int getEnergyPoints();
+        void takeDamage(unsigned int amount);
+        void beRepaired(unsigned int amount);
+        std::string getName();
+        int getAttackDamage();
+        int getHitpoints();
+        int getEnergyPoints();
 };
 
 std::ostream& operator<<(std::ostream& os, ClapTrap &clapTrap);

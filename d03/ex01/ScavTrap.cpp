@@ -13,6 +13,14 @@ ScavTrap::ScavTrap(const ScavTrap &scavTrap) {
     std::cout << "ScavTrap copied (copy constructor)" << std::endl;
 }
 
+ScavTrap &ScavTrap::operator=(ScavTrap const  &scavTrap) {
+    name = scavTrap.name;
+    hitpoints = scavTrap.hitpoints;
+    energyPoints = scavTrap.energyPoints;
+    attackDamage = scavTrap.attackDamage;
+    return *this;
+}
+
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {
     this->name = name;
@@ -24,8 +32,4 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 
 void ScavTrap::guardGate() {
     std::cout << "ScavTrap " << name << " entered guard mode" << std::endl;
-}
-
-void ScavTrap::attack(std::string const & target) {
-    std::cout << "ScavTrap " << name << " attacks " << target << ", " << attackDamage << " damage inflicted" << std::endl;
 }
