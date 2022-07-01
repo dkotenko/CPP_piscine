@@ -8,12 +8,14 @@ class Animal {
 		std::string type;
 
 	public:
-	Animal(std::string type);
-	Animal(const Animal &animal);
-	Animal();
-	~Animal();
+        Animal(std::string type);
+        Animal(const Animal &animal);
+        Animal();
+        ~Animal();
+        std::string getType(void) const;
 
 	Animal &operator=(const Animal & animal);
+
 };
 
 std::ostream& operator<<(std::ostream& os, Animal &animal);

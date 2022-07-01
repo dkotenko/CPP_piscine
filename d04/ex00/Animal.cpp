@@ -21,3 +21,7 @@ Animal &Animal::operator=(Animal const  &Animal) {
     type = Animal.type;
     return *this;
 }
+
+std::string &getType(void) {
+    return type;
+}

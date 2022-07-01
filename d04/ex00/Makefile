@@ -1,9 +1,9 @@
-SRCS =		ClapTrap.cpp \
+SRCS =		Animal.cpp \
 			main.cpp
 
 OBJS	= 	$(SRCS:%.cpp=%.o)
 
-INCLUDES =	ClapTrap.hpp
+INCLUDES =	Animal.hpp
 
 NAME =		ex00
 
