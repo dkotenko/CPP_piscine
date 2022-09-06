@@ -1,38 +1,45 @@
-SRCS =		Animal.cpp \
-			Cat.cpp \
+NAME       = ex00
+
+INCLUDE    = includes
+SRCDIR     = srcs
+OBJDIR     = objs
+
+SRCS_FILES = main.cpp \
+			Animal.cpp \
 			Dog.cpp \
-			main.cpp \
+			Cat.cpp \
 			WrongAnimal.cpp \
 			WrongCat.cpp
 
-OBJS	= 	$(SRCS:%.cpp=%.o)
-
-INCLUDES =	Animal.hpp \
+HEADER_FILES = Animal.hpp \
 			Cat.hpp \
 			Dog.hpp \
-			WrongCat.hpp \
-			WrongAnimal.hpp
+			WrongAnimal.hpp \
+			WrongCat.hpp
 
-NAME =		ex00
 
-FLAGS =		-Wall -Wextra -Werror -std=c++98 -Wshadow -Wno-shadow
+SRCS       := $(addprefix $(SRCDIR)/, $(SRCS_FILES))
+OBJS       := $(SRCS:$(SRCDIR)/%.cpp=$(OBJDIR)/%.o)
+HEADERS     := $(addprefix $(INCLUDE)/, $(HEADER_FILES))
 
-CC = 		clang++
+CC         = clang++
+CFLAGS     = -Wall -Wextra -Werror -std=c++98
 
-all: 		$(NAME)
+all: $(OBJDIR) $(NAME)
+$(NAME): $(OBJS) $(HEADERS)
+	$(CC) $(CFLAGS) $(OBJS) -o $@
 
-$(NAME):	$(OBJS) $(INCLUDES)
-			$(CC) $(FLAGS) $(OBJS) -o $@
-
-%.o: %.cpp
-	$(CC) $(FLAGS) -I . -c $< -o $@
+$(OBJDIR)/%.o: $(SRCDIR)/%.cpp | $(OBJDIR)
+	$(CC) $(CFLAGS) -I $(INCLUDE) -c $< -o $@
+$(OBJDIR):
+	@mkdir -p $@
 
 clean:
-			@rm -rf *.o
+	@-rm -rf $(OBJDIR)
 
-fclean:		clean
-			@rm -rf $(NAME)
+fclean: clean
+	@-rm -f $(NAME)
 
-re:			fclean all
+re: fclean all
 
-.PHONY: 	all clean fclean re
+.PHONY: all clean fclean re
