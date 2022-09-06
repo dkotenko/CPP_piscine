@@ -1,20 +1,13 @@
 #include "Animal.hpp"
 
 Animal::~Animal() {
-    std::cout << "Animal deleted" << std::endl;
 }
 
-Animal::Animal(std::string type) {
-    this->type = type;
-    std::cout << "Animal was created: current type: " << type << std::endl;
-}
+Animal::Animal() :
+                type("Animal") {}
 
 Animal::Animal(const Animal &Animal) {
     *this = Animal;
-}
-
-Animal::Animal() {
-    std::cout << "Animal was created: default constructor" << std::endl;
 }
 
 Animal &Animal::operator=(Animal const  &Animal) {
@@ -22,6 +15,16 @@ Animal &Animal::operator=(Animal const  &Animal) {
     return *this;
 }
 
-std::string &getType(void) {
+void Animal::makeSound() const {
+    std::cout << "loud Animal sound" << std::endl;
+}
+
+std::string const  &Animal::getType(void) const {
     return type;
+}
+
+std::ostream &			operator<<( std::ostream & o, Animal const & i )
+{
+	o << "Animal, type = " << i.getType() << std::endl;
+	return o;
 }
