@@ -41,5 +41,6 @@ CMake*
 **/cmake*
 **/CMake*
 
+**/obj
 **/.o
 **/ex*
