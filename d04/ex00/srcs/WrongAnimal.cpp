@@ -1,10 +1,12 @@
 #include "WrongAnimal.hpp"
 
 WrongAnimal::~WrongAnimal() {
+    std::cout << "WrongAnimal destroyed" << std::endl;
 }
 
 WrongAnimal::WrongAnimal(std::string type) {
     this->type = type;
+    std::cout << "WrongAnimal constructed" << std::endl;
 }
 
 WrongAnimal::WrongAnimal(const WrongAnimal &WrongAnimal) {
@@ -13,6 +15,7 @@ WrongAnimal::WrongAnimal(const WrongAnimal &WrongAnimal) {
 
 WrongAnimal::WrongAnimal(){
     type = "WrongAnimal";
+    std::cout << "WrongAnimal constructed" << std::endl;
 }
 
 WrongAnimal &WrongAnimal::operator=(WrongAnimal const  &WrongAnimal) {

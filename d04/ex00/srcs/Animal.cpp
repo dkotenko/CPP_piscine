@@ -1,10 +1,13 @@
 #include "Animal.hpp"
 
 Animal::~Animal() {
+    std::cout << "Animal destroyed" << std::endl;
 }
 
 Animal::Animal() :
-                type("Animal") {}
+                type("Animal") {
+                    std::cout << "Animal constructed" << std::endl;
+                }
 
 Animal::Animal(const Animal &Animal) {
     *this = Animal;
@@ -37,5 +40,5 @@ std::ostream &			operator<<( std::ostream & o, const Animal *i )
 }
 
 void Animal::print() const {
-    std::cout << "Animal, type = " << getType() << std::endl;
+    std::cout << std::endl << "Animal, type = " << getType() << std::endl;
 }

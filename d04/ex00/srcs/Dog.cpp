@@ -6,6 +6,7 @@
 
 Dog::Dog() {
 	type = "Dog";
+	std::cout << "Dog constructed" << std::endl;
 }
 
 Dog::Dog( const Dog & src )
@@ -21,6 +22,7 @@ Dog::Dog( const Dog & src )
 
 Dog::~Dog()
 {
+	std::cout << "Dog destroyed" << std::endl;
 }
 
 

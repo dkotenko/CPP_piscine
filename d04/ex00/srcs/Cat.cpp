@@ -6,6 +6,7 @@
 
 Cat::Cat() {
 	type = "Cat";
+	std::cout << "Cat constructed" << std::endl;
 }
 
 Cat::Cat( const Cat & src )
@@ -20,6 +21,7 @@ Cat::Cat( const Cat & src )
 
 Cat::~Cat()
 {
+	std::cout << "Cat destroyed" << std::endl;
 }
 
 

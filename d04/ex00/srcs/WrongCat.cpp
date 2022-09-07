@@ -7,12 +7,14 @@
 WrongCat::WrongCat() 
 {
 	type = "WrongCat";
+	std::cout << "WrongCat constructed" << std::endl;
 }
 
 WrongCat::WrongCat( const WrongCat & src )
 {
 	type = src.type;
 	sound = src.sound;
+	std::cout << "WrongCat copied" << std::endl;
 }
 
 
@@ -22,6 +24,7 @@ WrongCat::WrongCat( const WrongCat & src )
 
 WrongCat::~WrongCat()
 {
+	std::cout << "WrongCat destroyed" << std::endl;
 }
 
 

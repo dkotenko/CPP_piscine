@@ -40,3 +40,6 @@ CMake*
 **/.vscode
 **/cmake*
 **/CMake*
+
+**/.o
+**/ex*
