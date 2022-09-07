@@ -28,3 +28,14 @@ std::ostream &			operator<<( std::ostream & o, Animal const & i )
 	o << "Animal, type = " << i.getType() << std::endl;
 	return o;
 }
+
+
+std::ostream &			operator<<( std::ostream & o, const Animal *i )
+{
+	o << "Animal, type = " << (*i).getType() << std::endl;
+	return o;
+}
+
+void Animal::print() const {
+    std::cout << "Animal, type = " << getType() << std::endl;
+}

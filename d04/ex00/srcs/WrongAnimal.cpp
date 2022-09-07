@@ -33,3 +33,7 @@ std::ostream &			operator<<( std::ostream & o, WrongAnimal const & i )
 	o << "WrongAnimal, type = " << i.getType() << std::endl;
 	return o;
 }
+
+void WrongAnimal::print() const {
+    std::cout << "Animal, type = " << getType() << std::endl;
+}

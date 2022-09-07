@@ -7,19 +7,19 @@ int main() {
     const Animal* meta = new Animal();
     const Animal* dog = new Dog();
     const Animal* cat = new Cat();
-    std::cout << dog;
+    dog->print();
     dog->makeSound();
-    std::cout << cat;
+    cat->print();
     cat->makeSound(); //will output the cat sound!
-    std::cout << meta;
+    meta->print();
     meta->makeSound();
 
     std::cout << "Wrong animals: " << std::endl;
     const WrongAnimal *wrongAnimal = new WrongAnimal();
     const WrongAnimal *wrongCat = new WrongCat();
-    std::cout << wrongCat;
+    wrongCat->print();
     wrongCat->makeSound();
-    std::cout << wrongAnimal;
+    wrongAnimal->print();
     wrongAnimal->makeSound();
 
     delete(dog);

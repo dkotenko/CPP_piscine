@@ -36,7 +36,7 @@ Cat &				Cat::operator=( Cat const & src )
 	return *this;
 }
 
-std::ostream &			operator<<( std::ostream & out, Cat const & i )
+std::ostream &			operator<<( std::ostream & out, const Cat & i )
 {
 	out << "Cat, type = " << i.getType() << std::endl;
 	return out;

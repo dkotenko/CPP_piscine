@@ -15,11 +15,13 @@ class Animal {
 		virtual ~Animal();
         const std::string &getType(void) const;
 		virtual void makeSound() const;
+		void print() const;
 
 	Animal &operator=(const Animal & animal);
 
 };
 
 std::ostream& operator<<(std::ostream& os, Animal &animal);
+std::ostream& operator<<(std::ostream & o, const Animal *i );
 
 #endif
