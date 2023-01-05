@@ -17,7 +17,7 @@ class Brain
 		std::string ideas[IDEAS_NUM];
 
 		Brain &		operator=( Brain const & rhs );
-		void setIdeaByIndex(std::string idea, int index);
+
 	private:
 
 };

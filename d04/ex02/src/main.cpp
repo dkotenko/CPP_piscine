@@ -1,0 +1,23 @@
+#include "Cat.hpp"
+#include "Dog.hpp"
+
+#define ARRAY_SIZE 2
+
+void print_header(std::string s) {
+    std::cout << "==============================\n";
+    std::cout << s << std::endl;
+    std::cout << "==============================\n";
+}
+
+void animal_instantiating_test(void) {
+    print_header("animal_instantiating_test");
+
+    Dog dog;
+    dog.makeSound();
+    Cat cat;
+    cat.makeSound();
+}
+
+int main() {
+    animal_instantiating_test();
+}

@@ -15,7 +15,6 @@ class Cat : public Animal
 		~Cat();
 		void makeSound() const;
 		Brain *getBrain(void);
-		const Brain *getBrain(void) const;
 		Cat &		operator=( Cat const & cat );
 
 	private:

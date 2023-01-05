@@ -36,8 +36,6 @@ Cat &				Cat::operator=( Cat const & src )
 	if ( this != &src )
 	{
 		this->type = src.getType();
-		delete(brain);
-		brain = new Brain(*(src.getBrain()));
 	}
 	return *this;
 }
@@ -49,14 +47,10 @@ std::ostream &			operator<<( std::ostream & out, const Cat & i )
 }
 
 void Cat::makeSound() const {
-    std::cout << "Meow" << std::endl;
+    std::cout << "Cat sound: Meow" << std::endl;
 }
 
 Brain *Cat::getBrain(void) {
-	return brain;
-}
-
-const Brain *Cat::getBrain(void) const {
 	return brain;
 }
 

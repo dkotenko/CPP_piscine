@@ -36,21 +36,21 @@ Brain &				Brain::operator=( Brain const & rhs )
 {
 	if ( this != &rhs ) {
 		for (int i = 0; i < IDEAS_NUM; i++) {
-			//ideas[i].clean();
 			ideas[i] = rhs.ideas[i];
 		}
 	}
 	return *this;
 }
 
+
 /*
-** METHOD
+** --------------------------------- METHODS ----------------------------------
 */
-void Brain::setIdeaByIndex(std::string idea, int index) {
-	if (index >= IDEAS_NUM) {
-		return ;
-	}
-	ideas[index] = idea;
-}
+
+
+/*
+** --------------------------------- ACCESSOR ---------------------------------
+*/
+
 
 /* ************************************************************************** */
