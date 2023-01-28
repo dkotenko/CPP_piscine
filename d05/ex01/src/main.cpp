@@ -6,34 +6,8 @@ void print_header(std::string s) {
     std::cout << "==============================\n";
 }
 
-void invalid_grade_zero_init_test() {
-	std::cout << "Try to create a bureaucrat with invalid grade 0:" << std::endl;
-	try
-	{
-		Bureaucrat Zero("Zero", 0);
-		std::cout << Zero;
-	}
-	catch(const std::exception& e)
-	{
-		std::cout << "Cant create bureaucrat with invalid grade 0" << std::endl;
-	}
-}
-
-void invalid_grade_million_init_test() {
-	std::cout << "Try to create a bureaucrat with invalid grade 100000:" << std::endl;
-	try
-	{
-		Bureaucrat Million("Million", 1000000);
-		std::cout << Million;
-	}
-	catch(const std::exception& e)
-	{
-		std::cout << "Cant create bureaucrat with invalid grade 1000000" << std::endl;
-	}
-}
-
 void bureaucrat_test() {
-	print_header("Bureaucrat test");
+	print_header("Form test");
 
 	Bureaucrat Sam("Manager Sam", 21);
 	std::cout << Sam;

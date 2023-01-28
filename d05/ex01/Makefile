@@ -1,13 +1,15 @@
-NAME       = ex012
+NAME       = ex01
 
 INCDIR    = include
 SRCDIR     = src
 OBJDIR     = obj
 
 SRCS_FILES = main.cpp \
-			Bureaucrat.cpp
+			Bureaucrat.cpp \
+			Form.cpp
 
-INC_FILES = Bureaucrat.hpp
+INC_FILES = Bureaucrat.hpp \
+			Form.hpp
 
 
 OBJS_FILES = $(SRCS_FILES:%.cpp=%.o)
