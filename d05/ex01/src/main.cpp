@@ -6,7 +6,7 @@ void print_header(std::string s) {
     std::cout << "==============================\n";
 }
 
-void bureaucrat_test() {
+void form_test() {
 	print_header("Form test");
 
 	Bureaucrat Sam("Manager Sam", 21);
@@ -34,7 +34,7 @@ void bureaucrat_test() {
 }
 
 int main() {
-	bureaucrat_test();
+	form_test();
 	invalid_grade_zero_init_test();
 	invalid_grade_million_init_test();
 }
