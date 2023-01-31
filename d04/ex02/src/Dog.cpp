@@ -12,12 +12,7 @@ Dog::Dog() {
 
 Dog::Dog( const Dog & src )
 {
-	type = src.type;
-	sound = "Dog sound: Bark";
-	brain = new Brain();
-	for (int i = 0; i < IDEAS_NUM; i++) {
-		brain->ideas[i] = src.getBrain()->ideas[i];
-	}
+	*this = src;
 }
 
 
@@ -41,6 +36,7 @@ Dog &				Dog::operator=( Dog const & rhs )
 	if ( this != &rhs )
 	{
 		this->type = rhs.getType();
+		this->brain = rhs.getBrain();
 	}
 	return *this;
 }
@@ -52,7 +48,7 @@ std::ostream &			operator<<( std::ostream & o, Dog const & i )
 }
 
 void Dog::makeSound() const {
-    std::cout << "Bark" << std::endl;
+    std::cout << "Dog sound: Bark" << std::endl;
 }
 
 Brain *Dog::getBrain(void) const {

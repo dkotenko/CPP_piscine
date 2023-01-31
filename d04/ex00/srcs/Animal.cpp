@@ -13,8 +13,10 @@ Animal::Animal(const Animal &Animal) {
     *this = Animal;
 }
 
-Animal &Animal::operator=(Animal const  &Animal) {
-    type = Animal.type;
+Animal &Animal::operator=(Animal const  &animal) {
+    if (this != &animal) {
+        type = animal.type;
+    }
     return *this;
 }
 

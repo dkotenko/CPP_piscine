@@ -12,6 +12,13 @@ void print_header(std::string s) {
 void animal_instantiating_test(void) {
     print_header("animal_instantiating_test");
 
+    //uncomment this
+    //Animal animal;
+}
+
+void cat_dog_test(void) {
+    print_header("cat dog test");
+
     Dog dog;
     dog.makeSound();
     Cat cat;
@@ -19,5 +26,7 @@ void animal_instantiating_test(void) {
 }
 
 int main() {
+    cat_dog_test();
     animal_instantiating_test();
+
 }

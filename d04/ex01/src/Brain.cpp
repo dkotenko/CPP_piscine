@@ -10,11 +10,18 @@ Brain::Brain()
 	std::cout << "Brain constructed" << std::endl;
 }
 
-Brain::Brain( const Brain & src )
+Brain::Brain(std::string idea)
 {
 	for (int i = 0; i < IDEAS_NUM; i++) {
-			ideas[i] = src.ideas[i];
-		}
+		ideas[i] = idea;
+	}
+	std::cout << "Brain constructed" << std::endl;
+}
+
+Brain::Brain( const Brain & src )
+{
+	*this = src;
+	std::cout << "Brain constructed by copy" << std::endl;
 }
 
 
@@ -36,21 +43,10 @@ Brain &				Brain::operator=( Brain const & rhs )
 {
 	if ( this != &rhs ) {
 		for (int i = 0; i < IDEAS_NUM; i++) {
-			//ideas[i].clean();
 			ideas[i] = rhs.ideas[i];
 		}
 	}
 	return *this;
-}
-
-/*
-** METHOD
-*/
-void Brain::setIdeaByIndex(std::string idea, int index) {
-	if (index >= IDEAS_NUM) {
-		return ;
-	}
-	ideas[index] = idea;
 }
 
 /* ************************************************************************** */

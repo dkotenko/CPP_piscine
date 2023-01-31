@@ -3,6 +3,13 @@
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
+void checkGrade(int grade) {
+	if (grade < MAX_GRADE) {
+		throw GradeTooHighException();
+	} else if (grade > MIN_GRADE) {
+		throw GradeTooLowException();
+	}
+}
 
 Form::Form() :
 	m_name("default Name"),
@@ -10,7 +17,8 @@ Form::Form() :
 	m_gradeToSign(MIN_GRADE),
 	m_gradeToExecute(MIN_GRADE)
 {
-
+	checkGrade(m_gradeToSign);
+	checkGrade(m_gradeToExecute);
 }
 
 Form::Form(const std::string name, int gradeToSign, int gradeToExecute) :
@@ -19,7 +27,8 @@ Form::Form(const std::string name, int gradeToSign, int gradeToExecute) :
 	m_gradeToSign(gradeToSign),
 	m_gradeToExecute(gradeToExecute)
 {
-	
+	checkGrade(m_gradeToSign);
+	checkGrade(m_gradeToExecute);
 }
 
 Form::Form( const Form & src )
@@ -28,6 +37,8 @@ Form::Form( const Form & src )
 	m_gradeToSign = src->getGradeToSign();
 	m_gradeToExecute = src->getGradeToExecute();
 	m_signed = false;
+	checkGrade(m_gradeToSign);
+	checkGrade(m_gradeToExecute);
 }
 
 
@@ -52,6 +63,8 @@ Form &				Form::operator=( Form const & rhs )
 		m_signed = rhs.isSigned();
 		m_gradeToSign = rhs.getGradeToSign();
 		m_gradeToExecute = rhs.getGradeToExecute();
+		checkGrade(m_gradeToSign);
+		checkGrade(m_gradeToExecute);
 	}
 	return *this;
 }

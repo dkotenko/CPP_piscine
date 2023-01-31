@@ -4,11 +4,6 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-/*
-Bureaucrat::GradeTooHighException
-Bureaucrat::GradeTooLowException
-*/
-
 
 Bureaucrat::Bureaucrat() :
 	name("default Name"),
@@ -16,15 +11,19 @@ Bureaucrat::Bureaucrat() :
 {
 }
 
+void checkGrade(int grade) {
+	if (grade < MAX_GRADE) {
+		throw GradeTooHighException();
+	} else if (grade > MIN_GRADE) {
+		throw GradeTooLowException();
+	}
+}
+
 Bureaucrat::Bureaucrat(const std::string name, int grade) :
 	name(name),
 	grade(grade)
 {
-	if (grade < MAX_GRADE) {
-		throw Bureaucrat::GradeTooHighException();
-	} else if (grade > MIN_GRADE) {
-		throw Bureaucrat::GradeTooLowException();
-	}
+	checkGrade();
 }
 
 
@@ -32,6 +31,7 @@ Bureaucrat::Bureaucrat( const Bureaucrat & src ) :
 	name(src.getName()),
 	grade(src.getGrade())
 {
+	checkGrade();
 }
 
 
@@ -53,6 +53,7 @@ Bureaucrat &				Bureaucrat::operator=( Bureaucrat const & rhs )
 	if ( this != &rhs )
 	{
 		grade = rhs.getGrade();
+		checkGrade();
 	}
 	return *this;
 }
@@ -72,14 +73,14 @@ std::ostream &			operator<<( std::ostream & o, Bureaucrat const & i )
 
 void Bureaucrat::decrementGrade() {
 	if (grade + 1 > MIN_GRADE) {
-		throw Bureaucrat::GradeTooLowException();
+		throw GradeTooLowException();
 	}
 	grade++;
 }
 
 void Bureaucrat::incrementGrade() {
 	if (grade - 1 < MAX_GRADE) {
-		throw Bureaucrat::GradeTooHighException();
+		throw GradeTooHighException();
 	}
 	grade--;
 }
@@ -97,6 +98,15 @@ const std::string Bureaucrat::getName() const {
 	return name;
 }
 
-
+void Bureaucrat::signForm(Form const &form) {
+	if (form.isSigned) {
+		std::cout << getName() << " couldn't sign " << form.getName() << " because it has already been signed" <<  std::endl;
+	} else if (form.getGradeToSign() < getGrade()) {
+		std::cout << getName() << " couldn't sign " << form.getName() << " because bureacrat's grade is too low" <<  std::endl;
+	} else {
+		form.beSigned();
+		std::cout << getName() << " signed " << form.getName() <<  std::endl;
+	}
+}
 
 /* ************************************************************************** */

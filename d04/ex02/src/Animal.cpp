@@ -9,12 +9,15 @@ Animal::Animal() :
     std::cout << "Animal constructed" << std::endl;
 }
 
-Animal::Animal(const Animal &Animal) {
-    *this = Animal;
+Animal::Animal(const Animal &animal) {
+    *this = animal;
 }
 
-Animal &Animal::operator=(Animal const  &Animal) {
-    type = Animal.type;
+Animal &Animal::operator=(Animal const  &animal) {
+    if (this != &animal) {
+        this->type = animal.type;
+    }
+    std::cout << "Animal constructed by copy" << std::endl;
     return *this;
 }
 

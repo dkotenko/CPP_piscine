@@ -1,4 +1,5 @@
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 void print_header(std::string s) {
     std::cout << "==============================\n";
@@ -8,6 +9,8 @@ void print_header(std::string s) {
 
 void form_test() {
 	print_header("Form test");
+
+	Form enterForm("Enter form", 100, 40);
 
 	Bureaucrat Sam("Manager Sam", 21);
 	std::cout << Sam;
@@ -34,7 +37,7 @@ void form_test() {
 }
 
 int main() {
-	form_test();
+	bureaucrat_test();
 	invalid_grade_zero_init_test();
 	invalid_grade_million_init_test();
 }

@@ -6,18 +6,15 @@
 
 Dog::Dog() {
 	type = "Dog";
-	brain = new Brain();
+	brain = new Brain("Dog idea");
 	std::cout << "Dog constructed" << std::endl;
 }
 
 Dog::Dog( const Dog & src )
 {
-	type = src.type;
-	sound = "Bark";
-	brain = new Brain();
-	for (int i = 0; i < IDEAS_NUM; i++) {
-		brain->ideas[i] = src.getBrain()->ideas[i];
-	}
+
+	*this = src;
+	std::cout << "Dog constructed by copy" << std::endl;
 }
 
 
@@ -41,7 +38,6 @@ Dog &				Dog::operator=( Dog const & rhs )
 	if ( this != &rhs )
 	{
 		this->type = rhs.getType();
-		delete(brain);
 		brain = new Brain(*(rhs.getBrain()));
 	}
 	return *this;

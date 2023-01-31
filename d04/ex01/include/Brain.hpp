@@ -12,6 +12,7 @@ class Brain
 	public:
 
 		Brain();
+		Brain(std::string idea);
 		Brain( Brain const & src );
 		~Brain();
 		std::string ideas[IDEAS_NUM];

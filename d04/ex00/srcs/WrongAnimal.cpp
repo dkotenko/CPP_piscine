@@ -9,8 +9,9 @@ WrongAnimal::WrongAnimal(std::string type) {
     std::cout << "WrongAnimal constructed" << std::endl;
 }
 
-WrongAnimal::WrongAnimal(const WrongAnimal &WrongAnimal) {
-    *this = WrongAnimal;
+WrongAnimal::WrongAnimal(const WrongAnimal &wrongAnimal) {
+    *this = wrongAnimal;
+    std::cout << "WrongAnimal constructed by copy" << std::endl;
 }
 
 WrongAnimal::WrongAnimal(){
@@ -18,8 +19,10 @@ WrongAnimal::WrongAnimal(){
     std::cout << "WrongAnimal constructed" << std::endl;
 }
 
-WrongAnimal &WrongAnimal::operator=(WrongAnimal const  &WrongAnimal) {
-    type = WrongAnimal.type;
+WrongAnimal &WrongAnimal::operator=(WrongAnimal const  &wrongAnimal) {
+    if (this != &wrongAnimal) {
+        type = wrongAnimal.type;
+    }
     return *this;
 }
 

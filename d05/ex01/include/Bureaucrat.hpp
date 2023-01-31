@@ -4,6 +4,9 @@
 # include <iostream>
 # include <string>
 # include <exception>
+# include "GradeTooHighException.hpp"
+# include "GradeTooLowException.hpp"
+# include "Form.hpp"
 
 # define MAX_GRADE 1
 # define MIN_GRADE 150
@@ -11,12 +14,6 @@
 class Bureaucrat
 {
 	public:
-		class GradeTooHighException : public std::exception {
-		};
-
-		class GradeTooLowException : public std::exception {
-		};
-
 		Bureaucrat();
 		Bureaucrat(const std::string name, int grade);
 		Bureaucrat( Bureaucrat const & src );
@@ -25,6 +22,7 @@ class Bureaucrat
 		const std::string getName() const;
 		void incrementGrade();
 		void decrementGrade();
+		void signForm(Form const &form);
 
 		Bureaucrat &		operator=( Bureaucrat const & rhs );
 		const Bureaucrat &		operator=( Bureaucrat const & rhs ) const;

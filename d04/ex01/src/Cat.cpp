@@ -6,13 +6,14 @@
 
 Cat::Cat() {
 	type = "Cat";
-	brain = new Brain();
+	brain = new Brain("Cat idea");
 	std::cout << "Cat constructed" << std::endl;
 }
 
 Cat::Cat( const Cat & src )
 {
-	type = src.type;
+	*this = src;
+	std::cout << "Cat constructed by copy" << std::endl;
 }
 
 
@@ -36,7 +37,6 @@ Cat &				Cat::operator=( Cat const & src )
 	if ( this != &src )
 	{
 		this->type = src.getType();
-		delete(brain);
 		brain = new Brain(*(src.getBrain()));
 	}
 	return *this;

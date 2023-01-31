@@ -37,7 +37,7 @@ void dog_idea_copy_constructor_test() {
     std::cout << std::endl << std::endl << std::endl << "Dog idea copy constructor test (must be shallow copy)" << std::endl;
     Dog *dog = new Dog();
     
-    dog->getBrain()->setIdeaByIndex("Sniff everything", 0);
+    dog->getBrain()->ideas[0] = "Sniff everything";
     std::cout << "Dog first idea: " << dog->getBrain()->ideas[0] << std::endl;
 
     std::cout << std::endl << "newDog created by copy constructor from dog" << std::endl;
@@ -55,10 +55,10 @@ void dog_idea_copy_constructor_test() {
 
 void cat_idea_copy_constructor_test() {
     print_header("cat_idea_copy_constructor_test");
-    std::cout << std::endl << std::endl << std::endl << "Cat idea copy constructor test (must be shallow copy)" << std::endl;
+    std::cout << std::endl << std::endl << std::endl << "Cat idea copy constructor test" << std::endl;
     Cat cat;
     
-    cat.getBrain()->setIdeaByIndex("to sniff everything and everywhere", 0);
+    cat.getBrain()->ideas[0] = "to sniff everything and everywhere";
     std::cout << "Cat first idea: " << cat.getBrain()->ideas[0] << std::endl;
 
     std::cout << "newCat created by copy constructor from cat" << std::endl;
@@ -66,9 +66,9 @@ void cat_idea_copy_constructor_test() {
 
     std::cout << "newCat first idea: " << newCat.getBrain()->ideas[0] << std::endl;
 
-    std::cout << "Deleting cat" << newCat.getBrain()->ideas[0] << std::endl;
+    std::cout << "Deleting cat" << std::endl;
 
-    std::cout << "newCat first idea (must not be deleted): " << newCat.getBrain()->ideas[0] << std::endl;
+    //std::cout << "newCat first idea (must not be deleted): " << newCat.getBrain()->ideas[0] << std::endl;
 }
 
 void cat_idea_assign_operator_test() {
@@ -88,11 +88,10 @@ void cat_idea_assign_operator_test() {
 
 
 int main() {
-    //animals_array_test();
-    //dog_idea_copy_constructor_test();
-    //cat_idea_copy_constructor_test();
+    animals_array_test();
+    dog_idea_copy_constructor_test();
+    cat_idea_copy_constructor_test();
     cat_idea_assign_operator_test();
-    //dog_idea_assign_operator_test();
     
     
     return 0;

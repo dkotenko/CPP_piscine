@@ -6,11 +6,10 @@
 
 class Form
 {
-
 	public:
-
 		Form();
 		Form( Form const & src );
+		Form(const std::string name, int gradeToSign, int gradeToExecute);
 		~Form();
 
 		Form &		operator=( Form const & rhs );

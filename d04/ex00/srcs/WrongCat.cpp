@@ -12,9 +12,8 @@ WrongCat::WrongCat()
 
 WrongCat::WrongCat( const WrongCat & src )
 {
-	type = src.type;
-	sound = src.sound;
-	std::cout << "WrongCat copied" << std::endl;
+	*this = src;
+	std::cout << "WrongCat constructed by copy" << std::endl;
 }
 
 
