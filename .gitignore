@@ -49,3 +49,5 @@ CMake*
 en.subject.pdf
 checklist.pdf
 checklist.png
+*.dSYM
+**/*.dSYM
