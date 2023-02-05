@@ -9,7 +9,10 @@ SRCS_FILES = main.cpp \
 			Form.cpp
 
 INC_FILES = Bureaucrat.hpp \
-			Form.hpp
+			Form.hpp \
+			assert.hpp \
+			GradeTooHighException.hpp \
+			GradeTooLowException.hpp
 
 
 OBJS_FILES = $(SRCS_FILES:%.cpp=%.o)

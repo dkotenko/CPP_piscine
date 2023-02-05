@@ -16,7 +16,7 @@ Bureaucrat::Bureaucrat() :
 {
 }
 
-Bureaucrat::Bureaucrat(const std::string name, int grade) :
+Bureaucrat::Bureaucrat(const std::string &name, int grade) :
 	name(name),
 	grade(grade)
 {
@@ -32,6 +32,8 @@ Bureaucrat::Bureaucrat( const Bureaucrat & src ) :
 	name(src.getName()),
 	grade(src.getGrade())
 {
+	grade = src.getGrade();
+	*this = src;
 }
 
 
