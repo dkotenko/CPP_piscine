@@ -94,7 +94,7 @@ const std::string Bureaucrat::getName() const {
 	return name;
 }
 
-void Bureaucrat::signForm(Form &form) {
+void Bureaucrat::signForm(AForm &form) {
 	if (form.isSigned()) {
 		std::cout << getName() << " couldn't sign " << form.getName() << " because it has already been signed" <<  std::endl;
 	} else if (form.getGradeToSign() < getGrade()) {

@@ -3,19 +3,22 @@
 
 # include <iostream>
 # include <string>
-# include "Form.h"
+# include <fstream>
+# include "AForm.hpp"
 
-class ShrubberyCreationForm : public Form
+#define SHRUBBERY_SIGN 145
+#define SHRUBBERY_EXECUTE 137
+
+class ShrubberyCreationForm : public AForm
 {
 
 	public:
 
 		ShrubberyCreationForm();
 		ShrubberyCreationForm( ShrubberyCreationForm const & src );
-		~ShrubberyCreationForm();
 
 		ShrubberyCreationForm &		operator=( ShrubberyCreationForm const & rhs );
-		virtual void execute(Bureaucrat const & executor) = 0;
+		void execute(Bureaucrat const & executor);
 	private:
 
 };

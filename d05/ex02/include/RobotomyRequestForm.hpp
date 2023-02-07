@@ -3,8 +3,9 @@
 
 # include <iostream>
 # include <string>
+# include "AForm.hpp"
 
-class RobotomyRequestForm
+class RobotomyRequestForm : public AForm
 {
 
 	public:

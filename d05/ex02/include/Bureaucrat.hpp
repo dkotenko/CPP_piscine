@@ -6,12 +6,12 @@
 # include <exception>
 # include "GradeTooHighException.hpp"
 # include "GradeTooLowException.hpp"
-# include "Form.hpp"
+# include "AForm.hpp"
 
 # define MAX_GRADE 1
 # define MIN_GRADE 150
 
-class Form;
+class AForm;
 
 class Bureaucrat
 {
@@ -24,7 +24,7 @@ class Bureaucrat
 		const std::string getName() const;
 		void incrementGrade();
 		void decrementGrade();
-		void signForm(Form &form);
+		void signForm(AForm &form);
 
 		Bureaucrat &		operator=( Bureaucrat const & rhs );
 		const Bureaucrat &		operator=( Bureaucrat const & rhs ) const;

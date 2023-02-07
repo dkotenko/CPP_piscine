@@ -1,4 +1,4 @@
-#include "Form.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
@@ -11,51 +11,18 @@ void checkGrade(int grade) {
 	}
 }
 
-Form::Form() :
-	m_name("default Name"),
-	m_signed(false),
-	m_gradeToSign(MIN_GRADE),
-	m_gradeToExecute(MIN_GRADE)
-{
-	checkGrade(m_gradeToSign);
-	checkGrade(m_gradeToExecute);
-}
-
-Form::Form(const std::string name, int gradeToSign, int gradeToExecute) :
-	m_name(name),
-	m_signed(false),
-	m_gradeToSign(gradeToSign),
-	m_gradeToExecute(gradeToExecute)
-{
-	checkGrade(m_gradeToSign);
-	checkGrade(m_gradeToExecute);
-}
-
-Form::Form( const Form & src )
-{
-	m_name = src.getName();
-	m_gradeToSign = src.getGradeToSign();
-	m_gradeToExecute = src.getGradeToExecute();
-	m_signed = false;
-	checkGrade(m_gradeToSign);
-	checkGrade(m_gradeToExecute);
-}
-
+ShrubberyCreationForm::ShrubberyCreationForm() :
+	AForm("ShrubberyCreationForm", SHRUBBERY_SIGN, SHRUBBERY_EXECUTE) {}
 
 /*
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-Form::~Form()
-{
-}
-
-
 /*
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-Form &				Form::operator=( Form const & rhs )
+ShrubberyCreationForm &ShrubberyCreationForm::operator=( ShrubberyCreationForm const & rhs )
 {
 	if ( this != &rhs )
 	{
@@ -69,7 +36,7 @@ Form &				Form::operator=( Form const & rhs )
 	return *this;
 }
 
-std::ostream &			operator<<( std::ostream & o, Form const & i )
+std::ostream &			operator<<( std::ostream & o, ShrubberyCreationForm const & i )
 {
 	o << "Form: name = " << i.getName() << ", isSigned = " << i.isSigned() << \
 	", gradeToSign = " << i.getGradeToSign() << ", gradeToExecute = " << i.getGradeToExecute() << std::endl;
@@ -80,34 +47,40 @@ std::ostream &			operator<<( std::ostream & o, Form const & i )
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
+void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
+{
+	std::string trees[] = {
+		"            ,@@@@@@@,\n",
+		"    ,,,.   ,@@@@@@/@@,  .oo8888o.\n",
+		"  ,&%%&%&&%,@@@@@/@@@@@@,8888\\88/8o\n",
+		",%&\\%&&%&&%,@@@\\@@@/@@@88\\88888/88'\n",
+		"%&&%&%&/%&&%@@\\@@/ /@@@88888\\88888'\n",
+		"%&&%/ %&%%&&@@\\ V /@@' `88\\8 `/88'\n",
+		"`&%\\ ` /%&'    |.|        \\ '|8'\n",
+		"    |o|        | |         | |\n",
+		"    |.|        | |         | |\n",
+		" _\\/ ._\\//__/_/  ,\\_//___\\/.  \\_//__/_\n"};
 
-void Form::beSigned(Bureaucrat & bureaucrat) {
-	if (bureaucrat.getGrade() > m_gradeToSign) {
-		throw GradeTooLowException();
+	std::ofstream outfile;
+	outfile.exceptions(std::ofstream::failbit | std::ofstream::badbit);
+	std::string outfileName = getTarget() + "_shrubbery";
+	size_t len = sizeof(trees) / sizeof(std::string);
+	try
+	{
+		outfile.open(outfileName, std::ios::out);
+		for (std::string *it = &trees[0]; it != &trees[len]; ++it)
+			outfile << *it;
 	}
-	m_signed = true;
+	catch(std::ofstream::failure &e)
+	{
+		std::cerr << "Error openning file" << '\n';
+		return ;
+	}
+	std::cout << GREEN << "Shrubs planted in the " << getTarget() << std::endl;
 }
-
-
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
-
-std::string Form::getName() const {
-	return m_name;
-}
-
-bool Form::isSigned() const {
-	return m_signed;
-}
-
-int Form::getGradeToSign() const {
-	return m_gradeToSign;
-}
-
-int Form::getGradeToExecute() const {
-	return m_gradeToExecute;
-}
 
 /* ************************************************************************** */

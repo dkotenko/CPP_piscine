@@ -1,4 +1,4 @@
-NAME       = ex01
+NAME       = ex02
 
 INCDIR    = include
 SRCDIR     = src
@@ -6,19 +6,21 @@ OBJDIR     = obj
 
 SRCS_FILES = main.cpp \
 			Bureaucrat.cpp \
-			Form.cpp \
-			PresidentialPardonForm.Cpp \
-			RobotomyRequestForm.cpp \
+			AForm.cpp \
 			ShrubberyCreationForm.cpp
+			# PresidentialPardonForm.Cpp \
+			# RobotomyRequestForm.cpp \
+			
 
 INC_FILES = Bureaucrat.hpp \
-			Form.hpp \
+			AForm.hpp \
 			assert.hpp \
 			GradeTooHighException.hpp \
 			GradeTooLowException.hpp \
-			PresidentialPardonForm.hpp \
-			RobotomyRequestForm.hpp \
 			ShrubberyCreationForm.hpp
+			# PresidentialPardonForm.hpp \
+			# RobotomyRequestForm.hpp \
+			
 
 
 OBJS_FILES = $(SRCS_FILES:%.cpp=%.o)

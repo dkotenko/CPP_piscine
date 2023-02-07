@@ -3,8 +3,9 @@
 
 # include <iostream>
 # include <string>
+# include "AForm.hpp"
 
-class PresidentialPardonForm
+class PresidentialPardonForm : public AForm
 {
 
 	public:
