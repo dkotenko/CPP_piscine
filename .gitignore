@@ -52,3 +52,4 @@ checklist.png
 *.dSYM
 **/*.dSYM
 *_shrubbery
+d0*/ex*/ex*
