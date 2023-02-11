@@ -3,20 +3,27 @@
 
 # include <iostream>
 # include <string>
+# include <cstdlib>
+# include <ctime>
 # include "AForm.hpp"
+
+# define ROBOTOMY_SIGN 72
+# define ROBOTOMY_EXECUTE 45 
 
 class RobotomyRequestForm : public AForm
 {
 
 	public:
 
-		RobotomyRequestForm();
+		RobotomyRequestForm(const std::string &target);
 		RobotomyRequestForm( RobotomyRequestForm const & src );
 		~RobotomyRequestForm();
 
 		RobotomyRequestForm &		operator=( RobotomyRequestForm const & rhs );
-
+		void execute(Bureaucrat const & executor);
+		std::string getTarget() const;
 	private:
+		std::string m_target;
 
 };
 

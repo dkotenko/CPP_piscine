@@ -7,9 +7,10 @@ OBJDIR     = obj
 SRCS_FILES = main.cpp \
 			Bureaucrat.cpp \
 			AForm.cpp \
-			ShrubberyCreationForm.cpp
+			ShrubberyCreationForm.cpp \
+			RobotomyRequestForm.cpp
 			# PresidentialPardonForm.Cpp \
-			# RobotomyRequestForm.cpp \
+			
 			
 
 INC_FILES = Bureaucrat.hpp \
@@ -17,9 +18,10 @@ INC_FILES = Bureaucrat.hpp \
 			assert.hpp \
 			GradeTooHighException.hpp \
 			GradeTooLowException.hpp \
-			ShrubberyCreationForm.hpp
+			ShrubberyCreationForm.hpp \
+			RobotomyRequestForm.hpp
 			# PresidentialPardonForm.hpp \
-			# RobotomyRequestForm.hpp \
+			
 			
 
 

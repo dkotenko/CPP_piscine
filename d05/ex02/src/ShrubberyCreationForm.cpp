@@ -3,16 +3,13 @@
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
-void checkGrade(int grade) {
-	if (grade < MAX_GRADE) {
-		throw GradeTooHighException();
-	} else if (grade > MIN_GRADE) {
-		throw GradeTooLowException();
-	}
-}
 
-ShrubberyCreationForm::ShrubberyCreationForm() :
-	AForm("ShrubberyCreationForm", SHRUBBERY_SIGN, SHRUBBERY_EXECUTE) {}
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target) :
+	AForm("ShrubberyCreationForm", SHRUBBERY_SIGN, SHRUBBERY_EXECUTE),
+	m_target(target) {}
+
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm & src) :
+	AForm(src) {}
 
 /*
 ** -------------------------------- DESTRUCTOR --------------------------------
@@ -30,6 +27,7 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=( ShrubberyCreationForm c
 		m_signed = rhs.isSigned();
 		m_gradeToSign = rhs.getGradeToSign();
 		m_gradeToExecute = rhs.getGradeToExecute();
+		m_target = rhs.getTarget();
 		checkGrade(m_gradeToSign);
 		checkGrade(m_gradeToExecute);
 	}
@@ -47,19 +45,16 @@ std::ostream &			operator<<( std::ostream & o, ShrubberyCreationForm const & i )
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
-void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
+void ShrubberyCreationForm::execute(Bureaucrat const &executor)
 {
 	std::string trees[] = {
-		"            ,@@@@@@@,\n",
-		"    ,,,.   ,@@@@@@/@@,  .oo8888o.\n",
-		"  ,&%%&%&&%,@@@@@/@@@@@@,8888\\88/8o\n",
-		",%&\\%&&%&&%,@@@\\@@@/@@@88\\88888/88'\n",
-		"%&&%&%&/%&&%@@\\@@/ /@@@88888\\88888'\n",
-		"%&&%/ %&%%&&@@\\ V /@@' `88\\8 `/88'\n",
-		"`&%\\ ` /%&'    |.|        \\ '|8'\n",
-		"    |o|        | |         | |\n",
-		"    |.|        | |         | |\n",
-		" _\\/ ._\\//__/_/  ,\\_//___\\/.  \\_//__/_\n"};
+		"    *    \n",
+		"   ***   \n",
+		"  *****  \n",
+		" ******* \n",
+		"*********\n",
+		"    #    \n",
+	};
 
 	std::ofstream outfile;
 	outfile.exceptions(std::ofstream::failbit | std::ofstream::badbit);
@@ -76,11 +71,15 @@ void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 		std::cerr << "Error openning file" << '\n';
 		return ;
 	}
-	std::cout << GREEN << "Shrubs planted in the " << getTarget() << std::endl;
+	std::cout << "Shrubs planted in the " << getTarget() << " by " << executor.getName() << std::endl;
 }
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
+
+std::string ShrubberyCreationForm::getTarget() const {
+	return m_target;
+}
 
 /* ************************************************************************** */

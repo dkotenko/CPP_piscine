@@ -1,44 +1,20 @@
-#include "Form.hpp"
+#include "RobotomyRequestForm.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
-void checkGrade(int grade) {
-	if (grade < MAX_GRADE) {
-		throw GradeTooHighException();
-	} else if (grade > MIN_GRADE) {
-		throw GradeTooLowException();
-	}
+
+RobotomyRequestForm::RobotomyRequestForm(const std::string &target) :
+	AForm("RobotomyCreationForm", ROBOTOMY_SIGN, ROBOTOMY_EXECUTE),
+	m_target(target)
+{
+	std::srand(std::time(nullptr));
 }
 
-Form::Form() :
-	m_name("default Name"),
-	m_signed(false),
-	m_gradeToSign(MIN_GRADE),
-	m_gradeToExecute(MIN_GRADE)
+RobotomyRequestForm::RobotomyRequestForm( const RobotomyRequestForm & src ) : 
+	AForm(src)
 {
-	checkGrade(m_gradeToSign);
-	checkGrade(m_gradeToExecute);
-}
-
-Form::Form(const std::string name, int gradeToSign, int gradeToExecute) :
-	m_name(name),
-	m_signed(false),
-	m_gradeToSign(gradeToSign),
-	m_gradeToExecute(gradeToExecute)
-{
-	checkGrade(m_gradeToSign);
-	checkGrade(m_gradeToExecute);
-}
-
-Form::Form( const Form & src )
-{
-	m_name = src.getName();
-	m_gradeToSign = src.getGradeToSign();
-	m_gradeToExecute = src.getGradeToExecute();
-	m_signed = false;
-	checkGrade(m_gradeToSign);
-	checkGrade(m_gradeToExecute);
+	m_target = src.getTarget();
 }
 
 
@@ -46,7 +22,7 @@ Form::Form( const Form & src )
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-Form::~Form()
+RobotomyRequestForm::~RobotomyRequestForm()
 {
 }
 
@@ -55,7 +31,7 @@ Form::~Form()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-Form &				Form::operator=( Form const & rhs )
+RobotomyRequestForm &				RobotomyRequestForm::operator=( RobotomyRequestForm const & rhs )
 {
 	if ( this != &rhs )
 	{
@@ -69,9 +45,9 @@ Form &				Form::operator=( Form const & rhs )
 	return *this;
 }
 
-std::ostream &			operator<<( std::ostream & o, Form const & i )
+std::ostream &			operator<<( std::ostream & o, RobotomyRequestForm const & i )
 {
-	o << "Form: name = " << i.getName() << ", isSigned = " << i.isSigned() << \
+	o << "RobotomyRequestForm: name = " << i.getName() << ", isSigned = " << i.isSigned() << \
 	", gradeToSign = " << i.getGradeToSign() << ", gradeToExecute = " << i.getGradeToExecute() << std::endl;
 	return o;
 }
@@ -81,11 +57,15 @@ std::ostream &			operator<<( std::ostream & o, Form const & i )
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void Form::beSigned(Bureaucrat & bureaucrat) {
-	if (bureaucrat.getGrade() > m_gradeToSign) {
-		throw GradeTooLowException();
+void RobotomyRequestForm::execute(Bureaucrat const &executor) {
+	
+    bool robotomySuccess = (bool)(std::rand() % 2);
+
+	if (robotomySuccess) {
+		std::cout << getTarget() << " has been robotomized successfully by " << executor.getName() << std::endl;
+	} else {
+		std::cout << "The robotomy on the target " << getTarget() << " failed by " << executor.getName() << std::endl;
 	}
-	m_signed = true;
 }
 
 
@@ -94,20 +74,8 @@ void Form::beSigned(Bureaucrat & bureaucrat) {
 ** --------------------------------- ACCESSOR ---------------------------------
 */
 
-std::string Form::getName() const {
-	return m_name;
-}
-
-bool Form::isSigned() const {
-	return m_signed;
-}
-
-int Form::getGradeToSign() const {
-	return m_gradeToSign;
-}
-
-int Form::getGradeToExecute() const {
-	return m_gradeToExecute;
+std::string RobotomyRequestForm::getTarget() const {
+	return m_target;
 }
 
 /* ************************************************************************** */
