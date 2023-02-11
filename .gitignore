@@ -51,3 +51,4 @@ checklist.pdf
 checklist.png
 *.dSYM
 **/*.dSYM
+*_shrubbery
