@@ -15,6 +15,8 @@ ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm & src) 
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
+ShrubberyCreationForm::~ShrubberyCreationForm() {}
+
 /*
 ** --------------------------------- OVERLOAD ---------------------------------
 */
@@ -62,7 +64,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const &executor)
 	size_t len = sizeof(trees) / sizeof(std::string);
 	try
 	{
-		outfile.open(outfileName, std::ios::out);
+		outfile.open(outfileName.c_str(), std::ios::out);
 		for (std::string *it = &trees[0]; it != &trees[len]; ++it)
 			outfile << *it;
 	}

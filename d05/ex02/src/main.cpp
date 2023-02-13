@@ -4,6 +4,7 @@
 #include "assert.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 void print_header(std::string s) {
     std::cout << "==============================\n";
@@ -26,8 +27,16 @@ void robotomy_success() {
     rbForm.execute(b1);
 }
 
+void presidental_success() {
+    print_header("test presidentalForm");
+    PresidentialPardonForm prForm("test");
+    Bureaucrat b1("Bureacrat", 1);
+    prForm.execute(b1);
+}
+
 int main() {
-    robotomy_success();
+    presidental_success();
+    //robotomy_success();
 }
 
 

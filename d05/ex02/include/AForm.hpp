@@ -16,7 +16,6 @@ class AForm
 		int getGradeToSign() const;
 		int getGradeToExecute() const;
 		virtual void execute(Bureaucrat const & executor) = 0;
-
 	protected:
 		AForm();
 		AForm(const AForm &src );
@@ -24,6 +23,7 @@ class AForm
 		~AForm();
 		AForm &		operator=( AForm const & rhs );
 		void checkGrade(int grade);
+		void checkBeforeExecution(int grade);
 		std::string m_name;
 		bool m_signed;
 		int m_gradeToSign;

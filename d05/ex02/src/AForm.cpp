@@ -79,6 +79,11 @@ void AForm::checkGrade(int grade) {
 	}
 }
 
+void AForm::checkBeforeExecution(int grade) {
+	
+}
+
+
 
 
 /*

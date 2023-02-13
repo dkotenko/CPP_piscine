@@ -5,18 +5,24 @@
 # include <string>
 # include "AForm.hpp"
 
+# define PRESIDENT_SIGN 25
+# define PRESIDENT_EXECUTE 5
+
 class PresidentialPardonForm : public AForm
 {
 
 	public:
 
-		PresidentialPardonForm();
+		PresidentialPardonForm(const std::string &target);
 		PresidentialPardonForm( PresidentialPardonForm const & src );
 		~PresidentialPardonForm();
 
 		PresidentialPardonForm &		operator=( PresidentialPardonForm const & rhs );
+		void execute(Bureaucrat const & executor);
+		std::string getTarget() const;
 
 	private:
+		std::string m_target;
 
 };
 

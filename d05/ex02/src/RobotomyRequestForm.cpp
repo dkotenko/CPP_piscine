@@ -8,7 +8,7 @@ RobotomyRequestForm::RobotomyRequestForm(const std::string &target) :
 	AForm("RobotomyCreationForm", ROBOTOMY_SIGN, ROBOTOMY_EXECUTE),
 	m_target(target)
 {
-	std::srand(std::time(nullptr));
+	std::srand(std::time(NULL));
 }
 
 RobotomyRequestForm::RobotomyRequestForm( const RobotomyRequestForm & src ) : 

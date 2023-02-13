@@ -8,21 +8,17 @@ SRCS_FILES = main.cpp \
 			Bureaucrat.cpp \
 			AForm.cpp \
 			ShrubberyCreationForm.cpp \
-			RobotomyRequestForm.cpp
-			# PresidentialPardonForm.Cpp \
+			RobotomyRequestForm.cpp \
+			PresidentialPardonForm.cpp
 			
-			
-
 INC_FILES = Bureaucrat.hpp \
 			AForm.hpp \
 			assert.hpp \
 			GradeTooHighException.hpp \
 			GradeTooLowException.hpp \
 			ShrubberyCreationForm.hpp \
-			RobotomyRequestForm.hpp
-			# PresidentialPardonForm.hpp \
-			
-			
+			RobotomyRequestForm.hpp \
+			PresidentialPardonForm.hpp
 
 
 OBJS_FILES = $(SRCS_FILES:%.cpp=%.o)

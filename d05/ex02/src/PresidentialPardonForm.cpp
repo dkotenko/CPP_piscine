@@ -1,61 +1,33 @@
-#include "Form.hpp"
+#include "PresidentialPardonForm.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
-void checkGrade(int grade) {
-	if (grade < MAX_GRADE) {
-		throw GradeTooHighException();
-	} else if (grade > MIN_GRADE) {
-		throw GradeTooLowException();
-	}
-}
 
-Form::Form() :
-	m_name("default Name"),
-	m_signed(false),
-	m_gradeToSign(MIN_GRADE),
-	m_gradeToExecute(MIN_GRADE)
+
+
+PresidentialPardonForm::PresidentialPardonForm(const std::string &target) :
+	AForm("PresidentialPardonForm", PRESIDENT_SIGN, PRESIDENT_EXECUTE),
+	m_target(target) {}
+
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm & src) :
+	AForm(src)
 {
-	checkGrade(m_gradeToSign);
-	checkGrade(m_gradeToExecute);
+	m_target = src.getTarget();
 }
-
-Form::Form(const std::string name, int gradeToSign, int gradeToExecute) :
-	m_name(name),
-	m_signed(false),
-	m_gradeToSign(gradeToSign),
-	m_gradeToExecute(gradeToExecute)
-{
-	checkGrade(m_gradeToSign);
-	checkGrade(m_gradeToExecute);
-}
-
-Form::Form( const Form & src )
-{
-	m_name = src.getName();
-	m_gradeToSign = src.getGradeToSign();
-	m_gradeToExecute = src.getGradeToExecute();
-	m_signed = false;
-	checkGrade(m_gradeToSign);
-	checkGrade(m_gradeToExecute);
-}
-
 
 /*
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-Form::~Form()
-{
-}
+PresidentialPardonForm::~PresidentialPardonForm() {}
 
 
 /*
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-Form &				Form::operator=( Form const & rhs )
+PresidentialPardonForm &				PresidentialPardonForm::operator=( PresidentialPardonForm const & rhs )
 {
 	if ( this != &rhs )
 	{
@@ -63,15 +35,16 @@ Form &				Form::operator=( Form const & rhs )
 		m_signed = rhs.isSigned();
 		m_gradeToSign = rhs.getGradeToSign();
 		m_gradeToExecute = rhs.getGradeToExecute();
+		m_target = rhs.getTarget();
 		checkGrade(m_gradeToSign);
 		checkGrade(m_gradeToExecute);
 	}
 	return *this;
 }
 
-std::ostream &			operator<<( std::ostream & o, Form const & i )
+std::ostream &			operator<<( std::ostream & o, PresidentialPardonForm const & i )
 {
-	o << "Form: name = " << i.getName() << ", isSigned = " << i.isSigned() << \
+	o << "PresidentialPardonForm: name = " << i.getName() << ", isSigned = " << i.isSigned() << \
 	", gradeToSign = " << i.getGradeToSign() << ", gradeToExecute = " << i.getGradeToExecute() << std::endl;
 	return o;
 }
@@ -81,33 +54,17 @@ std::ostream &			operator<<( std::ostream & o, Form const & i )
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void Form::beSigned(Bureaucrat & bureaucrat) {
-	if (bureaucrat.getGrade() > m_gradeToSign) {
-		throw GradeTooLowException();
-	}
-	m_signed = true;
+void PresidentialPardonForm::execute(Bureaucrat const &executor) {
+	
+    std::cout << executor.getName() << " informs: "  << getTarget() << " has been pardoned by Zaphod Beeblebrox" << std::endl;
 }
-
-
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
 
-std::string Form::getName() const {
-	return m_name;
-}
-
-bool Form::isSigned() const {
-	return m_signed;
-}
-
-int Form::getGradeToSign() const {
-	return m_gradeToSign;
-}
-
-int Form::getGradeToExecute() const {
-	return m_gradeToExecute;
+std::string PresidentialPardonForm::getTarget() const {
+	return m_target;
 }
 
 /* ************************************************************************** */

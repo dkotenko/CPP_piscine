@@ -1,5 +1,4 @@
 #include "Bureaucrat.hpp"
-#include "assert.hpp"
 
 void print_header(std::string s) {
     std::cout << "==============================\n";
