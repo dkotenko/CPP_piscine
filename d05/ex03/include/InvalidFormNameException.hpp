@@ -2,7 +2,7 @@
 
 #include <string>
 
-class GradeTooHighException : public std::exception {
+class InvalidFormNameException : public std::exception {
     public:
 		virtual const char* what() const throw();
 };

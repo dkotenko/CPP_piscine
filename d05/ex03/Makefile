@@ -1,4 +1,4 @@
-NAME       = ex02
+NAME       = ex03
 
 INCDIR    = include
 SRCDIR     = src
@@ -12,7 +12,9 @@ SRCS_FILES = main.cpp \
 			PresidentialPardonForm.cpp \
 			FormNotSignedException.cpp \
 			GradeTooLowException.cpp \
-			GradeTooHighException.cpp
+			GradeTooHighException.cpp \
+			Intern.cpp \
+			InvalidFormNameException.cpp
 			
 INC_FILES = Bureaucrat.hpp \
 			AForm.hpp \
@@ -22,7 +24,9 @@ INC_FILES = Bureaucrat.hpp \
 			ShrubberyCreationForm.hpp \
 			RobotomyRequestForm.hpp \
 			PresidentialPardonForm.hpp \
-			FormNotSignedException.hpp
+			FormNotSignedException.hpp \
+			Intern.hpp \
+			InvalidFormNameException.hpp
 
 
 OBJS_FILES = $(SRCS_FILES:%.cpp=%.o)
