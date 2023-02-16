@@ -121,6 +121,10 @@ bool Converter::isFloat(std::string &str) {
 	return !(ss.good() || (num == 0 && s[0] != '0'));
 }
 
+bool Converter::isDouble(std::string &str) {
+	
+}
+
 int Converter::identify(std::string s) {
 	if (Converter::isChar()) {
 		return TYPE_CHAR;

@@ -6,16 +6,20 @@ OBJDIR     = obj
 
 SRCS_FILES = main.cpp \
 			Converter.cpp \
-			ConvChar.cpp \
+			AConvType.cpp \
 			ConvInt.cpp \
+			ConvChar.cpp \
 			ConvFloat.cpp \
-			ConvDouble.cpp
+			ConvDouble.cpp \
+			
 
 INC_FILES = Converter.hpp \
+			AConvType.hpp
 			ConvChar.hpp \
 			ConvInt.hpp \
 			ConvFloat.hpp \
-			ConvDouble.hpp
+			ConvDouble.hpp \
+			
 
 
 OBJS_FILES = $(SRCS_FILES:%.cpp=%.o)

@@ -12,6 +12,6 @@ int main(int argc, char *argv[]) {
 		std::cout << "Usage: ./convert literal-to-convert" << std::endl;
 	} else {
 		Converter conv(argv[1]);
-		//std::cout << conv << std::endl;
+		std::cout << conv << std::endl;
 	}
 }

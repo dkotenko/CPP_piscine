@@ -3,8 +3,9 @@
 
 # include <iostream>
 # include <string>
+# include "AConvType.hpp"
 
-class ConvFloat
+class ConvFloat : public AConvType
 {
 
 	public:

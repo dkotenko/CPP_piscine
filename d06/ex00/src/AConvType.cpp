@@ -1,24 +1,14 @@
-#include "ConvInt.hpp"
+#include "AConvType.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-ConvInt::ConvInt(){}
+AConvType::AConvType()
+{
+}
 
-ConvInt::ConvInt(std::string s){}
-
-ConvInt::ConvInt(ConvChar &convChar) :
-	m_impossible(false),
-	m_value(static_cast<int>(convChar.m_value)){}
-
-ConvInt::ConvInt(ConvFloat &convFloat) : 
-	m_impossible(false)
-{}
-
-ConvInt::ConvInt(ConvDouble &convDouble){}
-
-ConvInt::ConvInt( const ConvInt & src )
+AConvType::AConvType( const AConvType & src )
 {
 }
 
@@ -27,7 +17,7 @@ ConvInt::ConvInt( const ConvInt & src )
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-ConvInt::~ConvInt()
+AConvType::~AConvType()
 {
 }
 
@@ -36,7 +26,7 @@ ConvInt::~ConvInt()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-ConvInt &				ConvInt::operator=( ConvInt const & rhs )
+AConvType &				AConvType::operator=( AConvType const & rhs )
 {
 	//if ( this != &rhs )
 	//{
@@ -45,7 +35,7 @@ ConvInt &				ConvInt::operator=( ConvInt const & rhs )
 	return *this;
 }
 
-std::ostream &			operator<<( std::ostream & o, ConvInt const & i )
+std::ostream &			operator<<( std::ostream & o, AConvType const & i )
 {
 	//o << "Value = " << i.getValue();
 	return o;
