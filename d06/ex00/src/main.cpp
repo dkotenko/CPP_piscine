@@ -1,4 +1,4 @@
-#include "Caster.hpp"
+#include "Converter.hpp"
 
 void print_header(std::string s) {
     std::cout << "==============================\n";
@@ -7,10 +7,11 @@ void print_header(std::string s) {
 }
 
 int main(int argc, char *argv[]) {
+	(void)argv;
 	if (argc < 2) {
-		std::cout << "Usage: ./convert literal-to-convert"
+		std::cout << "Usage: ./convert literal-to-convert" << std::endl;
 	} else {
-		Caster caster(argv[1]);
+		Converter conv(argv[1]);
+		//std::cout << conv << std::endl;
 	}
 }
-

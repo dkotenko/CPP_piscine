@@ -1,16 +1,14 @@
-#include "Caster.hpp"
+#include "ConvChar.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Caster::Caster(char *literal) :
-	m_literal(std::string(literal))
+ConvChar::ConvChar()
 {
-	
 }
 
-Caster::Caster( const Caster & src )
+ConvChar::ConvChar( const ConvChar & src )
 {
 }
 
@@ -19,7 +17,7 @@ Caster::Caster( const Caster & src )
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-Caster::~Caster()
+ConvChar::~ConvChar()
 {
 }
 
@@ -28,7 +26,7 @@ Caster::~Caster()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-Caster &				Caster::operator=( Caster const & rhs )
+ConvChar &				ConvChar::operator=( ConvChar const & rhs )
 {
 	//if ( this != &rhs )
 	//{
@@ -37,7 +35,7 @@ Caster &				Caster::operator=( Caster const & rhs )
 	return *this;
 }
 
-std::ostream &			operator<<( std::ostream & o, Caster const & i )
+std::ostream &			operator<<( std::ostream & o, ConvChar const & i )
 {
 	//o << "Value = " << i.getValue();
 	return o;

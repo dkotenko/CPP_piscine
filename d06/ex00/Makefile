@@ -5,9 +5,17 @@ SRCDIR     = src
 OBJDIR     = obj
 
 SRCS_FILES = main.cpp \
-			Caster.cpp
+			Converter.cpp \
+			ConvChar.cpp \
+			ConvInt.cpp \
+			ConvFloat.cpp \
+			ConvDouble.cpp
 
-INC_FILES = Caster.hpp
+INC_FILES = Converter.hpp \
+			ConvChar.hpp \
+			ConvInt.hpp \
+			ConvFloat.hpp \
+			ConvDouble.hpp
 
 
 OBJS_FILES = $(SRCS_FILES:%.cpp=%.o)
