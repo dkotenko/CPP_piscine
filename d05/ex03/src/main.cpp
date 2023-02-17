@@ -31,6 +31,9 @@ void internCreateForm_success() {
 
     bureacrat.signForm(*robotomyForm);
     bureacrat.executeForm(*robotomyForm);
+    delete shrubberyForm;
+    delete presidentialForm;
+    delete robotomyForm;
 }
 
 void internCreateForm_invalidFormName() {
@@ -41,6 +44,7 @@ void internCreateForm_invalidFormName() {
     AForm *shrubberyForm = intern.makeForm("Invalid name", "test");
     (void)shrubberyForm;
     shrubberyForm->getName();
+    delete shrubberyForm;
 }
 
 int main() {
