@@ -14,27 +14,27 @@ Converter::Converter(char *literal) :
 	switch (type) {
 		case TYPE_CHAR:
 			m_char = ConvChar(m_literal);
-			m_int = ConvInt(m_char);
-			m_float = ConvFloat(m_char);
-			m_double = ConvDouble(m_char);
+			m_int = ConvInt(m_char.m_value);
+			m_float = ConvFloat(m_char.m_value);
+			m_double = ConvDouble(m_char.m_value);
 			break;
 		case TYPE_INT:
 			m_int = ConvInt(m_literal);
-			m_char = ConvChar(m_int);
-			m_float = ConvFloat(m_int);
-			m_double = ConvDouble(m_int);
+			m_char = ConvChar(m_int.m_value);
+			m_float = ConvFloat(m_int.m_value);
+			m_double = ConvDouble(m_int.m_value);
 			break;
 		case TYPE_FLOAT:
 			m_float = ConvFloat(m_literal);
-			m_char = ConvChar(m_float);
-			m_int = ConvInt(m_float);
-			m_double = ConvDouble(m_float);
+			m_char = ConvChar(m_float.m_value);
+			m_int = ConvInt(m_float.m_value);
+			m_double = ConvDouble(m_float.m_value);
 			break;
 		case TYPE_DOUBLE:
 			m_double = ConvDouble(m_literal);
-			m_char = ConvChar(m_double);
-			m_int = ConvInt(m_double);
-			m_float = ConvFloat(m_double);
+			m_char = ConvChar(m_double.m_value);
+			m_int = ConvInt(m_double.m_value);
+			m_float = ConvFloat(m_double.m_value);
 			break;
 		default: //TYPE_IMPOSSIBLE
 			m_double = ConvDouble(m_literal);
@@ -47,6 +47,11 @@ Converter::Converter(char *literal) :
 
 Converter::Converter( const Converter & src )
 {
+	m_char = src.m_char;
+	m_int = src.m_int;
+	m_float = src.m_float;
+	m_double = src.m_double;
+	m_literal = src.m_literal;
 }
 
 
@@ -65,16 +70,15 @@ Converter::~Converter()
 
 Converter &				Converter::operator=( Converter const & rhs )
 {
-	//if ( this != &rhs )
-	//{
-		//this->_value = rhs.getValue();
-	//}
+	if ( this != &rhs ) {
+		*this = rhs;
+	}
 	return *this;
 }
 
 std::ostream &			operator<<( std::ostream & o, Converter const & i )
 {
-	//o << "Value = " << i.getValue();
+	o <<  i.m_char << i.m_int << i.m_float << i.m_double;
 	return o;
 }
 
@@ -83,66 +87,20 @@ std::ostream &			operator<<( std::ostream & o, Converter const & i )
 ** --------------------------------- METHODS ----------------------------------
 */
 
-bool Converter::stringToInt(std::string &s) {
-	std::stringstream ss;
-	int num = 0;
-
-    ss << s;
-	ss >> num;
-	return !(ss.good() || (num == 0 && s[0] != '0'));
-}
-
-bool Converter::isInt(std::string &s) {
-	std::stringstream ss;
-	int num = 0;
-
-    ss << s;
-	ss >> num;
-	return !(ss.good() || (num == 0 && s[0] != '0'));
-}
-
-bool Converter::isFloat(std::string &str) {
-	if (str == "nanf" || str == "inff" || str == "-innf") {
-		return true;
-	} else if (str.back() != 'f' || str.find('.') == std::string::npos) {
-		return false;
-	}
-
-	std::string s = str.substr(0, str.len() - 1);
-	std::stringstream ss;
-	float num = 0;
-
-    ss << s;
-	ss >> num;
-	return !(ss.good() || (num == 0 && s[0] != '0'));
-}
-
-bool Converter::isDouble(std::string &str) {
-	
-}
-
-int Converter::identify(std::string s) {
-	if (ConvChar::isChar()) {
+int Converter::identify(std::string &s) {
+	if (ConvChar::isChar(s)) {
 		return TYPE_CHAR;
-	} else if (ConvInt::isInt()) {
+	} else if (ConvInt::isInt(s)) {
 		return TYPE_INT;
-	} else if (ConvFloat::isFloat()) {
+	} else if (ConvFloat::isFloat(s)) {
 		return TYPE_FLOAT;
-	} else if (ConvDouble::isDouble()) {
+	} else if (ConvDouble::isDouble(s)) {
 		return TYPE_DOUBLE;
 	} else {
 		return TYPE_IMPOSSIBLE;
 	}
 	
 
-}
-
-bool isCharPrintable(char c) {
-	return c >= 0x20;
-}
-
-int floatToDouble(float f) {
-	
 }
 
 /*

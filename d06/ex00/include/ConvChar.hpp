@@ -11,11 +11,17 @@ class ConvChar : public AConvType
 	public:
 
 		ConvChar();
+		ConvChar(std::string &s);
+		ConvChar(int n);
+		ConvChar(float f);
+		ConvChar(double d);
 		ConvChar( ConvChar const & src );
 		~ConvChar();
+		static bool isChar(std::string &str);
+		bool isCharPrintable(char c);
 
 		ConvChar &		operator=( ConvChar const & rhs );
-
+		char m_value;
 	private:
 
 };

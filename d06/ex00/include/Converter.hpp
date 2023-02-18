@@ -14,6 +14,11 @@ class Converter
 {
 
 	public:
+		ConvChar m_char;
+		ConvInt m_int;
+		ConvFloat m_float;
+		ConvDouble m_double;
+
 		Converter();
 		Converter(char *literal);
 		Converter( Converter const & src );
@@ -31,12 +36,9 @@ class Converter
 		};
 
 		std::string m_literal;
-		ConvChar m_char;
-		ConvInt m_int;
-		ConvFloat m_float;
-		ConvDouble m_double;
+		
 
-		int identify(std::string s);
+		int identify(std::string &s);
 };
 
 std::ostream &			operator<<( std::ostream & o, Converter const & i );

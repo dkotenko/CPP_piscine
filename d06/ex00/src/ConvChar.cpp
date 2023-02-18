@@ -37,7 +37,13 @@ ConvChar &				ConvChar::operator=( ConvChar const & rhs )
 
 std::ostream &			operator<<( std::ostream & o, ConvChar const & i )
 {
-	//o << "Value = " << i.getValue();
+	o << "char: ";
+
+	if (!i.m_impossible) {
+		o << i.m_value << std::endl;
+	} else {
+		o << CONST_IMPOSSIBLE << std::endl;
+	}
 	return o;
 }
 
@@ -50,6 +56,9 @@ bool ConvChar::isChar(std::string &s) {
 	return s.len() == 3 && s[0] == '\'' && s[2] == '\'';
 }
 
+bool ConvChar::isCharPrintable(char c) {
+	return c >= 0x20;
+}
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------

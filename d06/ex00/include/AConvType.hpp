@@ -3,6 +3,13 @@
 
 # include <iostream>
 # include <string>
+# include <sstream>
+# include <limits>
+# include <cmath>
+# include <cstdlib>
+# include <cfloat>
+
+# define CONST_IMPOSSIBLE "impossible"
 
 class AConvType
 {
@@ -14,10 +21,10 @@ class AConvType
 		virtual ~AConvType() = 0;
 
 		AConvType &		operator=( AConvType const & rhs );
-
-	private:
+		bool areFloatsEqual(float f1, float f2);
+		bool areDoublesEqual(double f1, double f2);
 		bool m_impossible;
-
+	private:
 };
 
 std::ostream &			operator<<( std::ostream & o, AConvType const & i );

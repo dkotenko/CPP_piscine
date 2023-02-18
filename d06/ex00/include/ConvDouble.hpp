@@ -11,11 +11,17 @@ class ConvDouble : public AConvType
 	public:
 
 		ConvDouble();
+		ConvDouble(std::string &s);
+		ConvDouble(char c);
+		ConvDouble(int n);
+		ConvDouble(float f);
 		ConvDouble( ConvDouble const & src );
 		~ConvDouble();
+		static bool isDouble(std::string &str);
+
 
 		ConvDouble &		operator=( ConvDouble const & rhs );
-
+		double m_value;
 	private:
 
 };

@@ -11,11 +11,17 @@ class ConvFloat : public AConvType
 	public:
 
 		ConvFloat();
+		ConvFloat(char c);
+		ConvFloat(int n);
+		ConvFloat(double d);
+		ConvFloat(std::string &s);
 		ConvFloat( ConvFloat const & src );
 		~ConvFloat();
 
-		ConvFloat &		operator=( ConvFloat const & rhs );
+		static bool isFloat(std::string &str);
 
+		ConvFloat &		operator=( ConvFloat const & rhs );
+		float m_value;
 	private:
 
 };
