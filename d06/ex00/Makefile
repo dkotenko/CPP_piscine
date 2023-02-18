@@ -10,15 +10,15 @@ SRCS_FILES = main.cpp \
 			ConvInt.cpp \
 			ConvChar.cpp \
 			ConvFloat.cpp \
-			ConvDouble.cpp \
+			ConvDouble.cpp
 			
 
 INC_FILES = Converter.hpp \
-			AConvType.hpp
+			AConvType.hpp \
 			ConvChar.hpp \
 			ConvInt.hpp \
 			ConvFloat.hpp \
-			ConvDouble.hpp \
+			ConvDouble.hpp
 			
 
 

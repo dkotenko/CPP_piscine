@@ -4,7 +4,8 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-AConvType::AConvType()
+AConvType::AConvType() :
+m_impossible(false)
 {
 }
 

@@ -6,7 +6,11 @@
 
 ConvInt::ConvInt(){}
 
-ConvInt::ConvInt(std::string s){}
+ConvInt::ConvInt(std::string s) :
+	m_value(0)
+{
+
+}
 
 ConvInt::ConvInt(ConvChar &convChar) :
 	m_impossible(false),

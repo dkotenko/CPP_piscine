@@ -46,6 +46,10 @@ std::ostream &			operator<<( std::ostream & o, ConvChar const & i )
 ** --------------------------------- METHODS ----------------------------------
 */
 
+bool ConvChar::isChar(std::string &s) {
+	return s.len() == 3 && s[0] == '\'' && s[2] == '\'';
+}
+
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------

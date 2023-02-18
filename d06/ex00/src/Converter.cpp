@@ -83,11 +83,7 @@ std::ostream &			operator<<( std::ostream & o, Converter const & i )
 ** --------------------------------- METHODS ----------------------------------
 */
 
-bool Converter::isChar(std::string &s) {
-	return s.len() == 3 && s[0] == '\'' && s[2] == '\'';
-}
-
-bool Converter::isInt(std::string &s) {
+bool Converter::stringToInt(std::string &s) {
 	std::stringstream ss;
 	int num = 0;
 
@@ -126,9 +122,18 @@ bool Converter::isDouble(std::string &str) {
 }
 
 int Converter::identify(std::string s) {
-	if (Converter::isChar()) {
+	if (ConvChar::isChar()) {
 		return TYPE_CHAR;
-	} else if 
+	} else if (ConvInt::isInt()) {
+		return TYPE_INT;
+	} else if (ConvFloat::isFloat()) {
+		return TYPE_FLOAT;
+	} else if (ConvDouble::isDouble()) {
+		return TYPE_DOUBLE;
+	} else {
+		return TYPE_IMPOSSIBLE;
+	}
+	
 
 }
 

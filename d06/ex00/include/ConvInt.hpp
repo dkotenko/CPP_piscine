@@ -17,6 +17,7 @@ class ConvInt : public AConvType
 		ConvInt &		operator=( ConvInt const & rhs );
 
 	private:
+		int m_value;
 
 };
 
