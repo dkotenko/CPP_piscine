@@ -9,6 +9,7 @@ Converter::Converter(){}
 Converter::Converter(char *literal) :
 	m_literal(std::string(literal))
 {
+	std::cout << m_literal << std::endl;
 	int type = identify(m_literal);
 	
 	switch (type) {

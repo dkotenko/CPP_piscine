@@ -21,8 +21,8 @@ class AConvType
 		virtual ~AConvType() = 0;
 
 		AConvType &		operator=( AConvType const & rhs );
-		bool areFloatsEqual(float f1, float f2);
-		bool areDoublesEqual(double f1, double f2);
+		static bool areFloatsEqual(float f1, float f2);
+		static bool areDoublesEqual(double f1, double f2);
 		bool m_impossible;
 	private:
 };

@@ -5,6 +5,8 @@
 # include <string>
 # include "AConvType.hpp"
 
+# define NON_DISPLAYABLE "Non displayable"
+
 class ConvChar : public AConvType
 {
 
@@ -18,11 +20,12 @@ class ConvChar : public AConvType
 		ConvChar( ConvChar const & src );
 		~ConvChar();
 		static bool isChar(std::string &str);
-		bool isCharPrintable(char c);
+		static bool isPrintable(char c);
 
 		ConvChar &		operator=( ConvChar const & rhs );
 		char m_value;
 	private:
+		
 
 };
 

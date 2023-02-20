@@ -3,7 +3,11 @@
 
 # include <iostream>
 # include <string>
+# include <limits>
 # include "AConvType.hpp"
+
+# define CONV_INT_MAX std::numeric_limits<int>::max()
+# define CONV_INT_MIN std::numeric_limits<int>::min()
 
 class ConvInt : public AConvType
 {
