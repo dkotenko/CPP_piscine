@@ -9,7 +9,6 @@ Converter::Converter(){}
 Converter::Converter(char *literal) :
 	m_literal(std::string(literal))
 {
-	std::cout << m_literal << std::endl;
 	int type = identify(m_literal);
 	
 	switch (type) {
@@ -38,10 +37,10 @@ Converter::Converter(char *literal) :
 			m_float = ConvFloat(m_double.m_value);
 			break;
 		default: //TYPE_IMPOSSIBLE
-			m_double = ConvDouble(m_literal);
-			m_char = ConvChar(m_literal);
-			m_int = ConvInt(m_literal);
-			m_float = ConvFloat(m_literal);
+			m_double.m_impossible = true;
+			m_char.m_impossible = true;
+			m_int.m_impossible = true;
+			m_float.m_impossible = true;
 			break;
 	}	
 }

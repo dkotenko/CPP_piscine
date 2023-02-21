@@ -21,6 +21,7 @@ class ConvChar : public AConvType
 		~ConvChar();
 		static bool isChar(std::string &str);
 		static bool isPrintable(char c);
+		static bool isPositiveChar(int n);
 
 		ConvChar &		operator=( ConvChar const & rhs );
 		char m_value;

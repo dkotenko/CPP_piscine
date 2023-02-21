@@ -10,13 +10,17 @@ ConvChar::ConvChar()
 
 ConvChar::ConvChar(std::string &s) :
 	AConvType(),
-	m_value(s[1])
-{}
+	m_value(s[0])
+{
+	if (std::isdigit(s[0])) {
+		m_value = s[0] - '0';
+	}
+}
 
 ConvChar::ConvChar(int n) :
 	AConvType()
 {
-	if (std::isalpha(static_cast<char>(n))) {
+	if (isPositiveChar(n)) {
 		m_value = static_cast<char>(n);
 	} else {
 		m_impossible = true;
@@ -26,7 +30,7 @@ ConvChar::ConvChar(int n) :
 ConvChar::ConvChar(float f) :
 	AConvType()
 {
-	if (std::isalpha(static_cast<char>(f))) {
+	if (isRoundFloat(f) && isPositiveChar(static_cast<int>(f))) {
 		m_value = static_cast<char>(f);
 	} else {
 		m_impossible = true;
@@ -36,7 +40,7 @@ ConvChar::ConvChar(float f) :
 ConvChar::ConvChar(double d) :
 	AConvType()
 {
-	if (std::isalpha(static_cast<char>(d))) {
+	if (isRoundDouble(d) && isPositiveChar(static_cast<int>(d))) {
 		m_value = static_cast<char>(d);
 	} else {
 		m_impossible = true;
@@ -75,11 +79,10 @@ ConvChar &				ConvChar::operator=( ConvChar const & rhs )
 
 std::ostream &			operator<<( std::ostream & o, ConvChar const & i )
 {
-	std::cout << (int)i.m_value << std::endl;
-	
+	o << "char: ";
 	if (!i.m_impossible) {
 		if (ConvChar::isPrintable(i.m_value)) {
-			o << i.m_value << std::endl;
+			o << "'" << i.m_value << "'" << std::endl;
 		} else {
 			o << NON_DISPLAYABLE << std::endl;
 		}
@@ -94,12 +97,13 @@ std::ostream &			operator<<( std::ostream & o, ConvChar const & i )
 ** --------------------------------- METHODS ----------------------------------
 */
 
+
+bool ConvChar::isPositiveChar(int n) {
+	return n >= 0 && n <= 0x7f;
+}
+
 bool ConvChar::isChar(std::string &s) {
-	std::stringstream ss;
-	ss << s;
-	int num = 0;
-	ss >> num;
-	return std::isalpha(num);
+	return s.length() == 1 && ConvChar::isPositiveChar(s[0]);
 }
 
 bool ConvChar::isPrintable(char c) {

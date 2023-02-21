@@ -23,7 +23,11 @@ class AConvType
 		AConvType &		operator=( AConvType const & rhs );
 		static bool areFloatsEqual(float f1, float f2);
 		static bool areDoublesEqual(double f1, double f2);
+		static bool isRoundFloat(float f);
+		static bool isRoundDouble(double d);
+
 		bool m_impossible;
+		
 	private:
 };
 

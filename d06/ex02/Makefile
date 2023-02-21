@@ -1,27 +1,23 @@
-NAME       = convert
+NAME       = ex02
 
 INCDIR    = include
 SRCDIR     = src
 OBJDIR     = obj
 
-SRCS_FILES = main.cpp \
-			Converter.cpp \
-			AConvType.cpp \
-			ConvInt.cpp \
-			ConvChar.cpp \
-			ConvFloat.cpp \
-			ConvDouble.cpp
+SRCS_FILES =\
+	main.cpp \
+	A.cpp \
+	B.cpp \
+	C.cpp \
+	Base.cpp
 			
 
-INC_FILES = Converter.hpp \
-			AConvType.hpp \
-			ConvChar.hpp \
-			ConvInt.hpp \
-			ConvFloat.hpp \
-			ConvDouble.hpp
+INC_FILES =\
+	A.hpp \
+	B.hpp \
+	C.hpp \
+	Base.hpp
 			
-
-
 OBJS_FILES = $(SRCS_FILES:%.cpp=%.o)
 
 OBJS		:= $(addprefix $(OBJDIR)/, $(OBJS_FILES))

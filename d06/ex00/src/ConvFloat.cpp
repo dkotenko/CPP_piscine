@@ -11,9 +11,8 @@ ConvFloat::ConvFloat(std::string &str) :
 	m_value(0.f)
 {
 	std::string s = str.substr(0, str.length() - 1);
-	std::stringstream ss;
+	std::stringstream ss(s);
 
-    ss << s;
 	ss >> m_value;
 }
 
@@ -77,13 +76,15 @@ std::ostream &			operator<<( std::ostream & o, ConvFloat const & i )
 	
 	if (!i.m_impossible) {
 		if (isRound) {
-			o << i.m_value << ".0f" << std::endl;
+			o << i.m_value << ".0";
 		} else {
-			o << i.m_value << std::endl;
+			o << i.m_value;
 		}
+		o << "f";
 	} else {
-		o << CONST_IMPOSSIBLE << std::endl;
+		o << CONST_IMPOSSIBLE;
 	}
+	o << std::endl;
 	return o;
 }
 
@@ -93,7 +94,7 @@ std::ostream &			operator<<( std::ostream & o, ConvFloat const & i )
 */
 
 bool ConvFloat::isFloat(std::string &str) {
-	if (str == "nanf" || str == "inff" || str == "-innf") {
+	if (str == "nanf" || str == "+inff" || str == "inff" || str == "-inff") {
 		return true;
 	} else if (str[str.length() - 1] != 'f' || str.find('.') == std::string::npos) {
 		return false;

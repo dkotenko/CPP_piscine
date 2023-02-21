@@ -1,24 +1,16 @@
-NAME       = convert
+NAME       = ex01
 
 INCDIR    = include
 SRCDIR     = src
 OBJDIR     = obj
 
-SRCS_FILES = main.cpp \
-			Converter.cpp \
-			AConvType.cpp \
-			ConvInt.cpp \
-			ConvChar.cpp \
-			ConvFloat.cpp \
-			ConvDouble.cpp
+SRCS_FILES =\
+	main.cpp \
+	Data.cpp
 			
 
-INC_FILES = Converter.hpp \
-			AConvType.hpp \
-			ConvChar.hpp \
-			ConvInt.hpp \
-			ConvFloat.hpp \
-			ConvDouble.hpp
+INC_FILES =\
+	Data.hpp
 			
 
 

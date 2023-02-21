@@ -39,7 +39,7 @@ AConvType &				AConvType::operator=( AConvType const & rhs )
 
 std::ostream &			operator<<( std::ostream & o, AConvType const & i )
 {
-	o << "isImpossible = " << i.m_impossible;
+	(void)i;
 	return o;
 }
 
@@ -54,6 +54,14 @@ bool AConvType::areFloatsEqual(float f1, float f2) {
 
 bool AConvType::areDoublesEqual(double f1, double f2) {
 	return std::abs(f1 -f2) < DBL_EPSILON;
+}
+
+bool AConvType::isRoundFloat(float f) {
+	return std::floor(f) == std::ceil(f);
+}
+
+bool AConvType::isRoundDouble(double d) {
+	return std::floor(d) == std::ceil(d);
 }
 
 /*

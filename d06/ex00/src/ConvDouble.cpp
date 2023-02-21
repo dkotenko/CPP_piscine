@@ -89,7 +89,7 @@ std::ostream &			operator<<( std::ostream & o, ConvDouble const & i )
 */
 
 bool ConvDouble::isDouble(std::string &str) {
-	if (str == "nan" || str == "inf" || str == "-inn") {
+	if (str == "nan" || str == "inf"  || str == "+inf" || str == "-inf") {
 		return true;
 	} else if (str.find('.') == std::string::npos) {
 		return false;
