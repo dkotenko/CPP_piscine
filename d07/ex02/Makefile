@@ -5,8 +5,7 @@ SRCDIR     = src
 OBJDIR     = obj
 
 SRCS_FILES =\
-	main.cpp \
-	Array.cpp
+	main.cpp
 			
 
 INC_FILES =\
