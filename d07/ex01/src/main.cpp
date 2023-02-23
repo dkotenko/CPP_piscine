@@ -14,5 +14,4 @@ void test_valid() {
 
 int main() {
 	test_valid();
-
 }
