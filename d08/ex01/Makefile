@@ -6,7 +6,9 @@ OBJDIR     = obj
 
 SRCS_FILES =\
 	main.cpp \
-	Span.cpp
+	Span.cpp \
+	NoSpanException.cpp \
+	SpanIsFullException.cpp
 			
 
 INC_FILES =\

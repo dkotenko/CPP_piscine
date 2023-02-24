@@ -27,20 +27,15 @@ class Span {
 		~Span();
 
 		void addNumber(const int &n);
-		void addNumber(std::vector<int>::iterator start, std::vector<int>::iterator end);
+		void addNumber(std::vector<int> toAdd);
 
 		int shortestSpan(void);
 		int longestSpan(void);
 
 		size_t size(void) const;
-
-		std::vector<int> getSpan(void) const;
-
 		
 		std::vector<int> m_span;
-		unsigned int m_capacity;
 		unsigned int m_size;
-	private:
-}
+};
 
 

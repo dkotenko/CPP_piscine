@@ -9,7 +9,7 @@ SRCS_FILES =\
 			
 
 INC_FILES =\
-	Array.hpp
+	MutantStack.hpp
 			
 OBJS_FILES = $(SRCS_FILES:%.cpp=%.o)
 
