@@ -5,11 +5,12 @@ SRCDIR     = src
 OBJDIR     = obj
 
 SRCS_FILES =\
-	main.cpp
+	main.cpp \
+	Span.cpp
 			
 
 INC_FILES =\
-	iter.hpp
+	Span.hpp
 			
 OBJS_FILES = $(SRCS_FILES:%.cpp=%.o)
 

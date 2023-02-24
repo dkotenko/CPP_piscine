@@ -9,10 +9,20 @@
 
 
 class Span {
+	class SpanIsFullException : public std::exception {
+		public:
+			virtual const char *what() const throw();
+	};
+
+	class NoSpanException : public std::exception {
+		public:
+			virtual const char *what() const throw();
+	};
+
 	public:
 		Span();
 		Span(unsigned int size);
-		Span(const Span &copySpan);
+		Span(const Span &src);
 		Span &operator=(const Span &span);
 		~Span();
 
@@ -26,21 +36,11 @@ class Span {
 
 		std::vector<int> getSpan(void) const;
 
-		class SpanIsFullException : public std::exception {
-			public:
-				virtual const char *what() const throw();
-		};
-
-		class NoSpanException : public std::exception {
-			public:
-				virtual const char *what() const throw();
-		};
-
-
-	private:
+		
 		std::vector<int> m_span;
 		unsigned int m_capacity;
 		unsigned int m_size;
+	private:
 }
 
 
